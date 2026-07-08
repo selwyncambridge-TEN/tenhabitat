@@ -52,6 +52,7 @@ This repo is in initial setup with an approved scaffold direction. Product posit
 - Do not invent TEN Habitat services, pricing, team details, locations, guarantees, certifications, statistics, launch dates, or client biography.
 - Do not commit real credentials, API keys, service tokens, private client documents, unpublished assets, private media, contracts, invoices, or environment-specific secrets.
 - Do not add unrelated project names, workflows, links, architecture, or business assumptions to this repository.
+- Do not link this repo to any unrelated Netlify site, team resource, database, deploy hook, analytics account, environment variable set, or deployment pipeline.
 - Do not publish, deploy, push, open pull requests, create issues, send messages, or make client-visible changes unless Chris explicitly asks.
 - Do not run destructive commands or shared-state-changing operations without explicit permission.
 
@@ -135,6 +136,19 @@ Likely v1 data records:
 - message
 - source page or campaign metadata
 - follow-up status
+
+## Project Isolation And Handover
+
+TEN Habitat is a client project for Selwyn Cambridge and must be operationally isolated from unrelated work.
+
+Rules:
+
+- Use a dedicated Netlify site/project for TEN Habitat.
+- Use a dedicated Netlify Database for TEN Habitat.
+- Use dedicated environment variables, deploy hooks, analytics, forms, and domain/DNS settings.
+- Do not reuse unrelated Netlify sites, databases, teams, tokens, environment variables, analytics properties, deploy pipelines, or project-board workflows.
+- Prefer handover-friendly configuration: document setup, keep secrets out of git, and avoid machine-local assumptions.
+- Before linking or deploying through Netlify, verify the selected Netlify team/site belongs to the TEN Habitat project or is intended for Selwyn handover.
 
 ---
 

@@ -51,4 +51,5 @@ Each rule should be:
 
 ## Git & Releases
 
-- _(no rules yet)_
+- (2026-07-08) Rule: Keep TEN Habitat deployment, database, analytics, domain, and environment configuration isolated for Selwyn Cambridge handover; never reuse unrelated Netlify resources or deployment pipelines.
+  Why: The project is intended to be handed over fully to Selwyn, so cross-project contamination would make ownership, billing, secrets, and operations harder to transfer cleanly.

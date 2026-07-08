@@ -54,6 +54,16 @@ Likely v1 record fields:
 - source page or campaign metadata
 - follow-up status
 
+## Project Isolation
+
+TEN Habitat is a client project for Selwyn Cambridge and should be cleanly handover-ready.
+
+- Use a dedicated Netlify site/project for TEN Habitat.
+- Use a dedicated Netlify Database for TEN Habitat.
+- Use dedicated environment variables, deploy hooks, analytics, forms, and domain/DNS settings.
+- Do not link this repo to unrelated Netlify sites, databases, teams, deploy pipelines, or analytics resources.
+- Keep setup documented so Selwyn can take full control of the repo, deployment, database, and domain when the project is handed over.
+
 ## Repo Setup
 
 This repo uses `CLAUDE.md` as the human-edited agent operating guide. `AGENTS.md` is generated from it for agent tooling.
