@@ -20,6 +20,7 @@ playwright-report/
 .env
 .env.*
 !.env.example
+.secrets/
 *.env.secrets
 secrets.env
 

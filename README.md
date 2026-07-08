@@ -64,6 +64,71 @@ TEN Habitat is a client project for Selwyn Cambridge and should be cleanly hando
 - Do not link this repo to unrelated Netlify sites, databases, teams, deploy pipelines, or analytics resources.
 - Keep setup documented so Selwyn can take full control of the repo, deployment, database, and domain when the project is handed over.
 
+## Netlify Access
+
+Do not use the global Netlify CLI login or a non-TEN Habitat MCP server for this repo. Use the repo wrapper so every Netlify command is authenticated with TEN Habitat credentials.
+
+Create a Netlify personal access token from an account that can access the TEN Habitat team:
+
+1. Open Netlify user settings.
+2. Go to OAuth / personal access tokens.
+3. Create a token for TEN Habitat local development.
+4. Store it only in the local secret file below.
+
+Create local credentials:
+
+```bash
+cp .env.example .secrets/tenhabitat.env
+```
+
+Set these values in `.secrets/tenhabitat.env`:
+
+```bash
+TENHABITAT_NETLIFY_AUTH_TOKEN=...
+TENHABITAT_NETLIFY_SITE_ID=...
+```
+
+Check the TEN Habitat account/project with:
+
+```bash
+scripts/netlify-tenhabitat.sh sites:list
+scripts/netlify-tenhabitat.sh status
+```
+
+When `sites:list` shows the TEN Habitat project, copy its project/site ID into `TENHABITAT_NETLIFY_SITE_ID`. Link this checkout to the TEN Habitat Netlify project only after the site ID is confirmed:
+
+```bash
+scripts/netlify-tenhabitat.sh link-tenhabitat
+```
+
+If `netlify status` without the wrapper shows a non-TEN Habitat account or site, ignore that result for this repo and use the wrapper instead.
+
+## Netlify MCP Access
+
+Use the TEN Habitat MCP wrapper, not the global Netlify MCP server:
+
+```bash
+scripts/netlify-mcp-tenhabitat.sh
+```
+
+For MCP clients that support repo-local JSON config, copy `.mcp.example.json` to `.mcp.json`. `.mcp.json` is ignored by git.
+
+For Codex on this machine, the MCP server should be registered in `~/.codex/config.toml` as `netlify_tenhabitat` with this command:
+
+```toml
+[mcp_servers.netlify_tenhabitat]
+command = "/home/chris/projects/tenhabitat/scripts/netlify-mcp-tenhabitat.sh"
+startup_timeout_sec = 60.0
+```
+
+Restart the MCP client after changing MCP configuration. In active sessions, newly added MCP servers may not appear until the next session starts.
+
+## Local Secrets
+
+Local-only tokens and secrets belong in `.secrets/tenhabitat.env`. The entire `.secrets/` directory is ignored by git.
+
+Do not put real credentials in `.env.example`, `README.md`, `CLAUDE.md`, source files, commits, or chat-visible logs. Keep `.env.example` as a placeholder template only.
+
 ## Repo Setup
 
 This repo uses `CLAUDE.md` as the human-edited agent operating guide. `AGENTS.md` is generated from it for agent tooling.

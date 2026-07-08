@@ -150,6 +150,38 @@ Rules:
 - Prefer handover-friendly configuration: document setup, keep secrets out of git, and avoid machine-local assumptions.
 - Before linking or deploying through Netlify, verify the selected Netlify team/site belongs to the TEN Habitat project or is intended for Selwyn handover.
 
+### Netlify CLI And MCP Isolation
+
+Do not run bare `netlify` commands for TEN Habitat operations when the global CLI login or ambient environment may be authenticated to another team. Use the repo wrapper:
+
+```bash
+scripts/netlify-tenhabitat.sh <netlify-command>
+```
+
+The wrapper requires `.secrets/tenhabitat.env` with `TENHABITAT_NETLIFY_AUTH_TOKEN` and ignores ambient `NETLIFY_AUTH_TOKEN` values that do not match. `.secrets/tenhabitat.env` must stay untracked.
+
+Set `TENHABITAT_NETLIFY_SITE_ID` in `.secrets/tenhabitat.env` once the TEN Habitat Netlify project/site ID is confirmed, then link this checkout with:
+
+```bash
+scripts/netlify-tenhabitat.sh link-tenhabitat
+```
+
+Do not use the Netlify MCP server for TEN Habitat reads or writes unless its readback shows the TEN Habitat team/site. If the MCP server only shows unrelated teams or projects, treat it as unavailable for this repo.
+
+For MCP access, use the TEN Habitat-specific wrapper:
+
+```bash
+scripts/netlify-mcp-tenhabitat.sh
+```
+
+Codex should use a distinct `netlify_tenhabitat` MCP server entry that points at this wrapper. Do not repoint the global `netlify` MCP server or store a TEN Habitat token directly in shared MCP config.
+
+### Local Secrets
+
+Use `.secrets/tenhabitat.env` for repo-local tokens and secrets. Keep the entire `.secrets/` directory ignored by git.
+
+Never put real credentials in tracked templates, docs, source files, commits, issue text, PR text, or command output summaries. `.env.example` is only a placeholder template.
+
 ---
 
 # Hard Rules - Non-Negotiable

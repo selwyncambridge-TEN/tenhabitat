@@ -53,3 +53,5 @@ Each rule should be:
 
 - (2026-07-08) Rule: Keep TEN Habitat deployment, database, analytics, domain, and environment configuration isolated for Selwyn Cambridge handover; never reuse unrelated Netlify resources or deployment pipelines.
   Why: The project is intended to be handed over fully to Selwyn, so cross-project contamination would make ownership, billing, secrets, and operations harder to transfer cleanly.
+- (2026-07-08) Rule: Use TEN Habitat-specific Netlify authentication for this repo; do not rely on the global Netlify CLI login, ambient Netlify token, or MCP server if it is authenticated against another project.
+  Why: The first Netlify access check showed the available CLI/MCP context was not TEN Habitat-scoped, which would risk linking, deploying, or configuring the wrong project.

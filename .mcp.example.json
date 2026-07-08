@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "netlify-tenhabitat": {
+      "command": "/home/chris/projects/tenhabitat/scripts/netlify-mcp-tenhabitat.sh"
+    }
+  }
+}
