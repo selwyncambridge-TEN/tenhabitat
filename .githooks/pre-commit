@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Keep AGENTS.md in sync with CLAUDE.md.
+
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+if ! git diff --cached --name-only | grep -qx "CLAUDE.md"; then
+  exit 0
+fi
+
+bash "$REPO_ROOT/scripts/regenerate-agents-md.sh" --from-staged
+git add "$REPO_ROOT/AGENTS.md"
