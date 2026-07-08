@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# Keep AGENTS.md in sync with CLAUDE.md.
+# Pre-commit hook: keep AGENTS.md in sync with CLAUDE.md.
+# If CLAUDE.md is staged, regenerate AGENTS.md from the staged CLAUDE.md blob,
+# not the working tree, then stage AGENTS.md into the same commit. This keeps
+# partial staging and unstaged edits from leaking into the generated mirror.
 
 set -euo pipefail
 

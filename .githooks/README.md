@@ -22,6 +22,7 @@ It should print:
 
 ## Installed Hooks
 
-- `pre-commit` regenerates and stages `AGENTS.md` from the staged `CLAUDE.md` whenever `CLAUDE.md` is committed.
+- `pre-commit` regenerates and stages `AGENTS.md` whenever staged `CLAUDE.md` changes.
+- The hook reads the staged `CLAUDE.md` blob through `scripts/regenerate-agents-md.sh --from-staged`, not the working tree, so partial staging and unstaged edits cannot leak into `AGENTS.md`.
 
 This keeps `CLAUDE.md` as the edited source of truth while preserving a generated `AGENTS.md` mirror for agent tooling.

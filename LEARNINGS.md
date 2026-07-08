@@ -33,7 +33,8 @@ Each rule should be:
 
 ## Workflow
 
-- _(no rules yet)_
+- (2026-07-08) Rule: When repurposing root configuration from another repo, preserve the strong general operating standards, not only the file structure or sync mechanics; rewrite project-specific sections for TEN Habitat instead of deleting the discipline.
+  Why: The first setup kept the `CLAUDE.md` to `AGENTS.md` mechanism but made `CLAUDE.md` too skeletal, losing useful instructions about agent behavior, verification, safety, and engineering quality.
 
 ## Design
 
