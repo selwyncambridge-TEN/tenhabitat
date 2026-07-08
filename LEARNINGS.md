@@ -55,3 +55,5 @@ Each rule should be:
   Why: The project is intended to be handed over fully to Selwyn, so cross-project contamination would make ownership, billing, secrets, and operations harder to transfer cleanly.
 - (2026-07-08) Rule: Use TEN Habitat-specific Netlify authentication for this repo; do not rely on the global Netlify CLI login, ambient Netlify token, or MCP server if it is authenticated against another project.
   Why: The first Netlify access check showed the available CLI/MCP context was not TEN Habitat-scoped, which would risk linking, deploying, or configuring the wrong project.
+- (2026-07-08) Rule: TEN Habitat Netlify wrappers must also isolate ambient Netlify team/site/project variables, not only auth tokens.
+  Why: The shell environment may contain unrelated `NETLIFY_TEAM_ID` or `NETLIFY_SITE_ID` values that could make status, link, deploy, or MCP operations target the wrong Netlify project.

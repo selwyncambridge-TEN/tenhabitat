@@ -163,9 +163,24 @@ Do not run bare `netlify` commands for TEN Habitat operations when the global CL
 scripts/netlify-tenhabitat.sh <netlify-command>
 ```
 
-The wrapper requires `.secrets/tenhabitat.env` with `TENHABITAT_NETLIFY_AUTH_TOKEN` and ignores ambient `NETLIFY_AUTH_TOKEN` values that do not match. `.secrets/tenhabitat.env` must stay untracked.
+The wrapper prefers `.secrets/tenhabitat.env` with `TENHABITAT_NETLIFY_AUTH_TOKEN` and ignores ambient Netlify auth and site variables. `.secrets/tenhabitat.env` must stay untracked.
 
-Set `TENHABITAT_NETLIFY_SITE_ID` in `.secrets/tenhabitat.env` once the TEN Habitat Netlify project/site ID is confirmed, then link this checkout with:
+If a personal access token is unavailable, use Netlify's agent login ticket flow through the repo wrapper:
+
+```bash
+scripts/netlify-tenhabitat.sh login-request
+scripts/netlify-tenhabitat.sh login-check <ticket-id>
+```
+
+This stores OAuth state under `.secrets/netlify-home` and `.secrets/netlify-config`, not in the global Netlify CLI location.
+
+Before linking, deploying, or using MCP for Netlify operations, verify the authenticated Netlify context can access the expected TEN Habitat team:
+
+```bash
+scripts/netlify-tenhabitat.sh verify-team
+```
+
+Set `TENHABITAT_NETLIFY_TEAM_ID` in `.secrets/tenhabitat.env` to the TEN Habitat team ID. Set `TENHABITAT_NETLIFY_SITE_ID` only once the TEN Habitat Netlify project/site ID is confirmed, then link this checkout with:
 
 ```bash
 scripts/netlify-tenhabitat.sh link-tenhabitat
@@ -180,6 +195,8 @@ scripts/netlify-mcp-tenhabitat.sh
 ```
 
 Codex should use a distinct `netlify_tenhabitat` MCP server entry that points at this wrapper. Do not repoint the global `netlify` MCP server or store a TEN Habitat token directly in shared MCP config.
+
+For MCP, prefer `TENHABITAT_NETLIFY_AUTH_TOKEN` because Netlify documents MCP clients around PAT input. If using the login-ticket fallback, verify MCP readback shows the TEN Habitat team/project before relying on it.
 
 ### Local Secrets
 

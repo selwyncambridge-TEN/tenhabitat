@@ -68,10 +68,10 @@ TEN Habitat is a client project for Selwyn Cambridge and should be cleanly hando
 
 Do not use the global Netlify CLI login or a non-TEN Habitat MCP server for this repo. Use the repo wrapper so every Netlify command is authenticated with TEN Habitat credentials.
 
-Create a Netlify personal access token from an account that can access the TEN Habitat team:
+Preferred path: create a Netlify personal access token from an account that can access the TEN Habitat team. Netlify documents PATs under user settings, not team/project settings:
 
 1. Open Netlify user settings.
-2. Go to OAuth / personal access tokens.
+2. Go to Applications / personal access tokens.
 3. Create a token for TEN Habitat local development.
 4. Store it only in the local secret file below.
 
@@ -85,17 +85,33 @@ Set these values in `.secrets/tenhabitat.env`:
 
 ```bash
 TENHABITAT_NETLIFY_AUTH_TOKEN=...
+TENHABITAT_NETLIFY_TEAM_ID=...
 TENHABITAT_NETLIFY_SITE_ID=...
 ```
+
+If the personal access token UI is unavailable, use Netlify's agent login ticket flow through the repo wrapper:
+
+```bash
+scripts/netlify-tenhabitat.sh login-request
+```
+
+Open the returned authorization URL in the browser while logged into a Netlify user that can access the TEN Habitat team, then check the ticket:
+
+```bash
+scripts/netlify-tenhabitat.sh login-check <ticket-id>
+```
+
+This stores Netlify OAuth state under `.secrets/netlify-home` and `.secrets/netlify-config`, not in the global Netlify CLI location.
 
 Check the TEN Habitat account/project with:
 
 ```bash
+scripts/netlify-tenhabitat.sh verify-team
 scripts/netlify-tenhabitat.sh sites:list
 scripts/netlify-tenhabitat.sh status
 ```
 
-When `sites:list` shows the TEN Habitat project, copy its project/site ID into `TENHABITAT_NETLIFY_SITE_ID`. Link this checkout to the TEN Habitat Netlify project only after the site ID is confirmed:
+When `sites:list` shows the TEN Habitat project, confirm the account/team matches `TENHABITAT_NETLIFY_TEAM_ID`, then copy the project/site ID into `TENHABITAT_NETLIFY_SITE_ID`. Link this checkout to the TEN Habitat Netlify project only after the team and site IDs are confirmed:
 
 ```bash
 scripts/netlify-tenhabitat.sh link-tenhabitat
@@ -110,6 +126,8 @@ Use the TEN Habitat MCP wrapper, not the global Netlify MCP server:
 ```bash
 scripts/netlify-mcp-tenhabitat.sh
 ```
+
+For MCP, prefer `TENHABITAT_NETLIFY_AUTH_TOKEN` because Netlify documents MCP clients around PAT input. If using the login-ticket fallback, verify the MCP readback shows the TEN Habitat team/project before using it for any read or write operation.
 
 For MCP clients that support repo-local JSON config, copy `.mcp.example.json` to `.mcp.json`. `.mcp.json` is ignored by git.
 
