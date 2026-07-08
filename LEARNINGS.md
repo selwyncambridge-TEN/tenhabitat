@@ -38,7 +38,8 @@ Each rule should be:
 
 ## Design
 
-- _(no rules yet)_
+- (2026-07-08) Rule: Keep `DESIGN.md` as a substantive design contract with principles, anti-patterns, visual foundations, component rules, accessibility, and QA expectations; do not leave it as a thin placeholder when a fuller pattern is available.
+  Why: The initial TEN Habitat design guide was too sparse compared with the stronger design-contract pattern used in reference repos.
 
 ## Code
 
