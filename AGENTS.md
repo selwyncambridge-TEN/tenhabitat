@@ -49,7 +49,7 @@ Tiebreakers:
 
 ### Current State
 
-This repo is in initial setup with an approved scaffold direction. Product positioning, initial routes, stack, hosting, forms, and database direction are now captured below and in `README.md`. Treat detailed final copy, final brand assets, production domain, analytics, and final form fields as undecided until confirmed by Chris or Selwyn Cambridge.
+This repo now has a technical scaffold for the approved stack. Product positioning, initial routes, stack, hosting, forms, and database direction are captured below and in `README.md`. The public website itself is not built yet; current routes are placeholders. Treat detailed final copy, final brand assets, production domain, analytics, and final form fields as undecided until confirmed by Chris or Selwyn Cambridge.
 
 ### Do Not
 
@@ -66,7 +66,7 @@ This repo is in initial setup with an approved scaffold direction. Product posit
 - **Project**: TEN Habitat website
 - **Client**: Selwyn Cambridge
 - **Purpose**: Public-facing Venture Habitat transition and founding-community website
-- **Status**: Approved scaffold direction, not yet implemented
+- **Status**: Technical scaffold installed; public website not yet built
 - **Primary docs**: `CLAUDE.md`, `AGENTS.md`, `LEARNINGS.md`, `DESIGN.md`, `README.md`
 
 ## Approved Product Direction
@@ -109,6 +109,17 @@ Use this stack unless Chris changes it:
 - Zod for validation
 
 Do not use TypeScript release candidates for this client site unless Chris explicitly approves. Verify current package versions before scaffolding because JavaScript tooling changes quickly.
+
+Installed scaffold commands:
+
+```bash
+pnpm dev
+pnpm build
+pnpm type-check
+pnpm lint
+pnpm test:e2e
+pnpm dev:netlify
+```
 
 ## Presentation And Data Layer
 

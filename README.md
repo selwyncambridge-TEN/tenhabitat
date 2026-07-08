@@ -36,6 +36,33 @@ Primary call to action: join the founding community.
 - Netlify Database for simple relational data
 - Zod for validation
 
+## Current Scaffold
+
+The technical scaffold is installed. The public website itself is not built yet.
+
+Included:
+
+- Next.js App Router project shell
+- placeholder routes for `/`, `/builders`, `/backers`, `/investors`, and `/join`
+- Tailwind CSS v4 setup
+- shadcn/ui configuration and utility foundation
+- Netlify build configuration
+- Netlify Function scaffold at `/api/community-signup`
+- Netlify Database migration for `community_signups`
+- Zod validation schema for future signup submissions
+- Playwright smoke tests for scaffolded routes
+
+Common commands:
+
+```bash
+pnpm dev
+pnpm build
+pnpm type-check
+pnpm lint
+pnpm test:e2e
+pnpm dev:netlify
+```
+
 ## Presentation And Data Layer
 
 The presentation layer should be mostly static, fast, semantic, and accessible. The SVG mockups from the transition site are visual references, not production source files.
