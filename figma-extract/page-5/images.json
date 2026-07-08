@@ -1,0 +1,263 @@
+{
+  "page": 5,
+  "width": 1366,
+  "height": 2304,
+  "viewBox": "0 0 1024.5 1728",
+  "images": [
+    {
+      "index": 1,
+      "file": "figma-extract/page-5/images/page-5-image-01.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 80741,
+      "width": 3872,
+      "height": 2581,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3872",
+        "height": "2581",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 2,
+      "file": "figma-extract/page-5/images/page-5-image-02.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 54849,
+      "width": 3098,
+      "height": 2065,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3098",
+        "height": "2065",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 3,
+      "file": "figma-extract/page-5/images/page-5-image-03.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 106387,
+      "width": 3872,
+      "height": 2582,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3872",
+        "height": "2582",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 4,
+      "file": "figma-extract/page-5/images/page-5-image-04.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 415116,
+      "width": 5000,
+      "height": 3712,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "5000",
+        "height": "3712",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 5,
+      "file": "figma-extract/page-5/images/page-5-image-05.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 415116,
+      "width": 5000,
+      "height": 3712,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "5000",
+        "height": "3712",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 6,
+      "file": "figma-extract/page-5/images/page-5-image-06.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 415116,
+      "width": 5000,
+      "height": 3712,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "5000",
+        "height": "3712",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 7,
+      "file": "figma-extract/page-5/images/page-5-image-07.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 95870,
+      "width": 3872,
+      "height": 2582,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3872",
+        "height": "2582",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 8,
+      "file": "figma-extract/page-5/images/page-5-image-08.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 162906,
+      "width": 3486,
+      "height": 2323,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3486",
+        "height": "2323",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 9,
+      "file": "figma-extract/page-5/images/page-5-image-09.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 2717311,
+      "width": 3872,
+      "height": 2581,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3872",
+        "height": "2581",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 10,
+      "file": "figma-extract/page-5/images/page-5-image-10.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 3940689,
+      "width": 3098,
+      "height": 2065,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3098",
+        "height": "2065",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 11,
+      "file": "figma-extract/page-5/images/page-5-image-11.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 5268777,
+      "width": 3872,
+      "height": 2582,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3872",
+        "height": "2582",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 12,
+      "file": "figma-extract/page-5/images/page-5-image-12.png",
+      "sourceMime": "image/jpeg",
+      "sourceBytes": 11578753,
+      "width": 5735,
+      "height": 3825,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "5735",
+        "height": "3825",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 13,
+      "file": "figma-extract/page-5/images/page-5-image-13.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 96200,
+      "width": 5000,
+      "height": 3712,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "5000",
+        "height": "3712",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 14,
+      "file": "figma-extract/page-5/images/page-5-image-14.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 96200,
+      "width": 5000,
+      "height": 3712,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "5000",
+        "height": "3712",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 15,
+      "file": "figma-extract/page-5/images/page-5-image-15.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 96200,
+      "width": 5000,
+      "height": 3712,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "5000",
+        "height": "3712",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 16,
+      "file": "figma-extract/page-5/images/page-5-image-16.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 5081212,
+      "width": 3872,
+      "height": 2582,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3872",
+        "height": "2582",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 17,
+      "file": "figma-extract/page-5/images/page-5-image-17.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 5754947,
+      "width": 3486,
+      "height": 2323,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3486",
+        "height": "2323",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    }
+  ]
+}

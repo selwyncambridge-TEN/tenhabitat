@@ -1,0 +1,86 @@
+{
+  "page": "Page 1 – Transition Hero",
+  "width": 1366,
+  "height": 768,
+  "layers": [
+    {
+      "type": "rect",
+      "name": "Photo: Seedling growing from soil with blurred green background (use page-1-image-03.png)",
+      "x": 0,
+      "y": 0,
+      "w": 1366,
+      "h": 768,
+      "fill": "#243028",
+      "cornerRadius": 0,
+      "isPlaceholder": true
+    },
+    {
+      "type": "rect",
+      "name": "Panel – Orange transition card",
+      "x": 0,
+      "y": 131,
+      "w": 1101,
+      "h": 517,
+      "fill": "#A45A12",
+      "cornerRadius": 17
+    },
+    {
+      "type": "rect",
+      "name": "Image: TEN Habitat white logo (use page-1-image-01.png)",
+      "x": 118,
+      "y": 142,
+      "w": 223,
+      "h": 439,
+      "fill": "#FFFFFF",
+      "cornerRadius": 0,
+      "isPlaceholder": true
+    },
+    {
+      "type": "rect",
+      "name": "Photo: Foreground coconut seedling and soil (use page-1-image-05.png)",
+      "x": 846,
+      "y": 106,
+      "w": 402,
+      "h": 662,
+      "fill": "#6C4A1F",
+      "cornerRadius": 0,
+      "isPlaceholder": true
+    },
+    {
+      "type": "rect",
+      "name": "Button BG – Check out",
+      "x": 376,
+      "y": 536,
+      "w": 239,
+      "h": 53,
+      "fill": "#F6D00A",
+      "cornerRadius": 15
+    },
+    {
+      "type": "text",
+      "name": "Hero – Transition Headline",
+      "content": "After nearly two decades\nof helping caribbean\nbusinesses start and\ngrow... We are nurturing\nsomething new",
+      "x": 375,
+      "y": 223,
+      "w": 510,
+      "fontSize": 45,
+      "fontStyle": "Bold",
+      "color": "#FFFFFF",
+      "textAlign": "LEFT",
+      "lineHeight": 61
+    },
+    {
+      "type": "text",
+      "name": "Hero – Check Button Label",
+      "content": "Check out what it is",
+      "x": 388,
+      "y": 549,
+      "w": 210,
+      "fontSize": 25,
+      "fontStyle": "Regular",
+      "color": "#191919",
+      "textAlign": "LEFT",
+      "lineHeight": 30
+    }
+  ]
+}
