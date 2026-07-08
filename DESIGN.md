@@ -7,6 +7,7 @@ status: draft
 canonicalSources:
   operatingGuide: CLAUDE.md
   lessons: LEARNINGS.md
+  visualReference: TEN Habitat transition-site SVG mockups reviewed 2026-07-08
 ---
 
 # TEN Habitat Design Contract
@@ -15,15 +16,15 @@ canonicalSources:
 
 This root `DESIGN.md` is the agent-facing design contract for the TEN Habitat website. It defines the design standards agents must preserve when creating pages, components, visual systems, content layouts, and interaction states for this repo.
 
-This file does not invent the final brand. It sets the quality bar and the decision rules until Chris or Selwyn Cambridge provides approved brand assets, photography, copy, typography, colors, and positioning. Once approved assets exist, update this file to make them canonical.
+This file does not invent the final brand. It sets the quality bar and the decision rules from the reviewed transition-site mockups until Chris or Selwyn Cambridge provides final approved brand assets, photography, copy, typography, colors, and positioning. Once approved assets exist, update this file to make them canonical.
 
-The TEN Habitat website should feel intentional, grounded, clear, and client-specific. It should not feel like a generic template, a copied SaaS landing page, a placeholder brochure, or a decorative page with unverified claims.
+The TEN Habitat website should feel like a Caribbean venture-building community in transition: established, optimistic, founder-centered, and serious about converting entrepreneurial activity into investable businesses. It should not feel like a generic template, a copied SaaS landing page, a placeholder brochure, or a decorative page with unverified claims.
 
 ## Source Of Truth
 
 Use this order for design decisions:
 
-1. Approved brand assets, client-provided copy, and client-approved imagery.
+1. Approved brand assets, client-provided copy, client-approved imagery, and the transition-site mockups reviewed on 2026-07-08.
 2. Repo `DESIGN.md`.
 3. Repo `CLAUDE.md` for workflow, safety, and verification rules.
 4. Repo `LEARNINGS.md` for durable corrections.
@@ -42,6 +43,26 @@ Use these principles to judge whether a page or component belongs in TEN Habitat
 - **Warmth:** Keep the experience approachable and human. Avoid cold dashboard styling unless a future admin tool explicitly requires it.
 - **Content truth:** Let confirmed content drive structure. Do not invent proof, services, metrics, locations, people, or promises to make a layout look complete.
 - **Accessibility:** Treat readable contrast, keyboard access, semantic markup, labels, focus states, and responsive behavior as design requirements.
+
+## Site Direction From Mockups
+
+The reviewed transition-site mockups establish the current design and content direction:
+
+- TEN Habitat is transitioning into **Venture Habitat**.
+- The central proposition is a conversion layer for Caribbean entrepreneurial activity.
+- The site should emphasize ordinary businesses becoming extraordinary through structure, capital access, community, and momentum.
+- The main action is joining the founding community.
+- The experience should split clearly into builder, backer, and investor paths.
+
+Initial route intent:
+
+- `/` introduces Venture Habitat and the founding community.
+- `/builders` speaks to founders, entrepreneurs, and entrepreneur support organizations.
+- `/backers` speaks to governments, development institutions, credit unions, and corporates.
+- `/investors` speaks to diaspora, investors, and capital partners.
+- `/join` collects founding community interest with role selection.
+
+Do not embed the exported SVG mockups as production pages. Rebuild the experience as semantic HTML/CSS with responsive sections, accessible text, optimized image assets, and real forms.
 
 ## Anti-Patterns
 
@@ -65,7 +86,9 @@ These patterns are banned from final TEN Habitat website work unless Chris expli
 ## Brand And Content Rules
 
 - Use `TEN Habitat` consistently unless approved brand material specifies another form.
+- Use `Venture Habitat` for the emerging offer/platform described by the transition-site mockups.
 - Treat Selwyn Cambridge as the client stakeholder. Do not invent biography, credentials, quotes, services, or claims.
+- Claims shown in the provided mockups may be treated as source material, but keep them traceable and avoid expanding them without approval.
 - Do not imply regulatory, legal, environmental, financial, construction, real estate, or professional guarantees without approved source text.
 - Draft copy must be visibly provisional in docs or kept out of production surfaces.
 - If the design needs content that does not exist yet, create a content gap instead of inventing filler.
@@ -79,18 +102,22 @@ Before shipping a page, cover the logo and confirm the page still feels identifi
 
 ### Color
 
-Until final brand colors are approved, use a restrained provisional palette:
+The mockups establish an energetic provisional palette:
 
-- **Canvas:** warm or neutral background suitable for long reading.
-- **Ink:** high-contrast text color for body copy and headings.
+- **Orange:** primary narrative energy and emphasis.
+- **Yellow:** primary CTA and high-attention accent.
+- **Green/teal:** builder and growth signals.
+- **Blue/navy:** backer/institutional trust and data-layer sections.
+- **Slate/blue-gray:** supporting body text and quiet structure.
+- **White:** clean public-site canvas and breathing room.
 - **Surface:** subtle raised or separated areas for repeated content, forms, and navigation.
-- **Accent:** one deliberate accent for links, primary actions, focus rings, and selected states.
 - **Status:** success, warning, error, and info colors are reserved for state and risk, not decoration.
 
 Rules:
 
 - Use semantic tokens once a CSS system exists, such as `--color-canvas`, `--color-ink`, `--color-surface`, `--color-accent`, and status tokens.
 - Do not hard-code raw colors throughout components after tokens exist.
+- Do not let the orange/yellow palette flatten the site into a one-note theme; preserve white space, blue-gray structure, and photography.
 - Do not use color as the only signifier for state.
 - Verify text contrast against WCAG AA minimums.
 
@@ -110,11 +137,12 @@ Typography should carry identity before decoration does.
 TEN Habitat pages should use clear public-site composition:
 
 1. site header and navigation
-2. first-viewport identity and primary message
-3. supporting proof or context from approved content
-4. service, story, project, or information sections once content exists
-5. contact, inquiry, or next-step area
-6. footer with practical links and contact context
+2. first-viewport Venture Habitat identity and primary message
+3. proof/context section with sourced metrics or community evidence
+4. audience path cards for builders, backers, and investors
+5. role-specific story and offer sections
+6. founding community call to action or role-specific contact flow
+7. footer with practical links and contact context
 
 Rules:
 
@@ -180,6 +208,7 @@ Forms must be explicit and trustworthy:
 ### Media And Imagery
 
 - Prefer real approved photography, client-supplied images, site/project imagery, or custom-generated assets that match the brief.
+- Preserve the mockups' emphasis on Caribbean founders, business owners, community gatherings, and institutional/diaspora participation.
 - Do not use dark, blurred, cropped, stock-like, or purely atmospheric media when the user needs to inspect the real subject.
 - Keep image crops intentional across breakpoints.
 - Provide useful alt text for informative images and empty alt text for decorative images.
@@ -243,6 +272,7 @@ Design choices must be buildable and performant:
 Before marking visual work complete:
 
 - `DESIGN.md` was read before making the change.
+- The page matches the approved route/audience intent.
 - The work uses approved content or clearly marked placeholders.
 - No invented claims, services, metrics, testimonials, or credentials are present.
 - Layout was checked on at least one mobile and one desktop viewport.

@@ -38,12 +38,13 @@ Tiebreakers:
 | Visual design or brand work | `DESIGN.md` |
 | Project overview | `README.md` |
 | Website source work | Existing app/source files once they exist |
+| Data layer / forms | `README.md`, Netlify database migrations once present, server action/function files once present |
 | Git hook behavior | `.githooks/README.md`, `.githooks/pre-commit` |
 | Package or command choice | `package.json`, lockfiles, config files, and scripts once present |
 
 ### Current State
 
-This repo is in initial setup. Treat product copy, information architecture, technical stack, hosting, analytics, forms, CMS, and deployment as undecided until confirmed in repo files or by Chris.
+This repo is in initial setup with an approved scaffold direction. Product positioning, initial routes, stack, hosting, forms, and database direction are now captured below and in `README.md`. Treat detailed final copy, final brand assets, production domain, analytics, and final form fields as undecided until confirmed by Chris or Selwyn Cambridge.
 
 ### Do Not
 
@@ -58,9 +59,82 @@ This repo is in initial setup. Treat product copy, information architecture, tec
 
 - **Project**: TEN Habitat website
 - **Client**: Selwyn Cambridge
-- **Purpose**: Public-facing website development
-- **Status**: Initial repository setup
+- **Purpose**: Public-facing Venture Habitat transition and founding-community website
+- **Status**: Approved scaffold direction, not yet implemented
 - **Primary docs**: `CLAUDE.md`, `AGENTS.md`, `LEARNINGS.md`, `DESIGN.md`, `README.md`
+
+## Approved Product Direction
+
+The transition-site mockups establish the working product direction:
+
+- TEN Habitat is moving from The Entrepreneurial Network Habitat toward **Venture Habitat**.
+- Venture Habitat is the missing conversion layer between Caribbean entrepreneurial activity and investable businesses.
+- The core thesis: ordinary Caribbean businesses can become extraordinary when given structure, community, capital access, and growth momentum.
+- The main public action is to join the founding community.
+
+Primary audiences:
+
+- **Builders:** founders, entrepreneurs, and entrepreneur support organizations.
+- **Backers:** governments, development institutions, credit unions, and corporates.
+- **Investors:** diaspora, investors, and capital partners.
+
+Approved initial routes:
+
+- `/` - main Venture Habitat landing page.
+- `/builders` - builder audience page.
+- `/backers` - institutional backer page.
+- `/investors` - investor and diaspora partner page.
+- `/join` - founding community signup with role selection.
+
+## Approved Technical Scaffold
+
+Use this stack unless Chris changes it:
+
+- Next.js 16
+- React 19
+- TypeScript 6.0.3 stable
+- Tailwind CSS
+- shadcn/ui, used selectively for accessible primitives and forms
+- Playwright for browser, screenshot, and responsive QA
+- pnpm for package management
+- Netlify hosting
+- Netlify Functions or server actions for server-side form handling
+- Netlify Database for simple relational data
+- Zod for validation
+
+Do not use TypeScript release candidates for this client site unless Chris explicitly approves. Verify current package versions before scaffolding because JavaScript tooling changes quickly.
+
+## Presentation And Data Layer
+
+Presentation layer:
+
+- Keep public marketing pages mostly static and fast.
+- Build semantic pages from the mockup direction instead of embedding exported SVG pages.
+- Use real HTML, accessible forms, responsive images, and reusable sections.
+- Use shadcn/ui for accessibility-sensitive primitives, not as the visual identity.
+
+Data layer:
+
+- Use Netlify Database for relational community-signup and inquiry data.
+- Use `@netlify/database` as the database interface.
+- Keep migrations under `netlify/database/migrations/` once tables exist.
+- Route browser submissions through a server action or Netlify Function.
+- Validate inputs with Zod before writing to the database.
+- Never expose database writes, connection strings, or secrets to client-side code.
+- Treat deploy previews as isolated database branches and production as the main database.
+
+Likely v1 data records:
+
+- founding community signup
+- selected role: builder, backer, investor
+- name
+- email
+- organization
+- country or market
+- interest area
+- message
+- source page or campaign metadata
+- follow-up status
 
 ---
 
