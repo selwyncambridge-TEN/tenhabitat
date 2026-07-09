@@ -1,0 +1,103 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-cocoa: var(--cocoa);
+  --color-ink: var(--ink);
+  --color-navy: var(--navy);
+  --color-paper: var(--paper);
+  --color-gold: var(--gold);
+  --color-amber: var(--amber);
+  --color-orange: var(--orange);
+  --color-slate: var(--slate);
+  --color-slate-body: var(--slate-body);
+  --color-slate-muted: var(--slate-muted);
+  --color-footer-muted: var(--footer-muted);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --font-sans: var(--font-sans);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: #f7f5ef;
+  --foreground: #191919;
+  --card: #ffffff;
+  --card-foreground: #191919;
+  --muted: #f7f5ef;
+  --muted-foreground: #64747c;
+  --border: #e8e2d4;
+  --primary: #f6d00a;
+  --primary-foreground: #191919;
+  --secondary: #0b1f2a;
+  --secondary-foreground: #ffffff;
+  --accent: #e8b000;
+  --accent-foreground: #191919;
+  --destructive: #b3541e;
+  --cocoa: #1a1008;
+  --ink: #191919;
+  --navy: #0b1f2a;
+  --paper: #f7f5ef;
+  --gold: #f6d00a;
+  --amber: #e8b000;
+  --orange: #ff7300;
+  --slate: #728d9b;
+  --slate-body: #34444c;
+  --slate-muted: #64747c;
+  --footer-muted: #998c80;
+  --font-sans: var(--font-jost), Jost, Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+input::placeholder {
+  color: #9aa6ac;
+}
+
+::selection {
+  background: rgba(246, 208, 10, 0.35);
+}

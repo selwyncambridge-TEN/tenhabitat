@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Pre-commit hook: keep AGENTS.md in sync with CLAUDE.md.
+# If CLAUDE.md is staged, regenerate AGENTS.md from the staged CLAUDE.md blob,
+# not the working tree, then stage AGENTS.md into the same commit. This keeps
+# partial staging and unstaged edits from leaking into the generated mirror.
+
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+if ! git diff --cached --name-only | grep -qx "CLAUDE.md"; then
+  exit 0
+fi
+
+bash "$REPO_ROOT/scripts/regenerate-agents-md.sh" --from-staged
+git add "$REPO_ROOT/AGENTS.md"

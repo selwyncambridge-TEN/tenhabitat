@@ -1,0 +1,16 @@
+[build]
+  command = "pnpm build"
+  ignore = "scripts/netlify-ignore-build.sh"
+  publish = ".next"
+
+[dev]
+  command = "pnpm dev"
+  port = 8888
+  targetPort = 3000
+  framework = "#custom"
+
+[functions]
+  directory = "netlify/functions"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

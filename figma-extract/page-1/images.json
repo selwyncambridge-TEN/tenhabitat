@@ -1,0 +1,83 @@
+{
+  "page": 1,
+  "width": 1366,
+  "height": 768,
+  "viewBox": "0 0 1024.5 576",
+  "images": [
+    {
+      "index": 1,
+      "file": "figma-extract/page-1/images/page-1-image-01.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 63328,
+      "width": 844,
+      "height": 1625,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "844",
+        "height": "1625",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 2,
+      "file": "figma-extract/page-1/images/page-1-image-02.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 75396,
+      "width": 3870,
+      "height": 2583,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3870",
+        "height": "2583",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 3,
+      "file": "figma-extract/page-1/images/page-1-image-03.png",
+      "sourceMime": "image/jpeg",
+      "sourceBytes": 5111123,
+      "width": 6300,
+      "height": 4205,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "6300",
+        "height": "4205",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 4,
+      "file": "figma-extract/page-1/images/page-1-image-04.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 38326,
+      "width": 844,
+      "height": 1625,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "844",
+        "height": "1625",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    },
+    {
+      "index": 5,
+      "file": "figma-extract/page-1/images/page-1-image-05.png",
+      "sourceMime": "image/png",
+      "sourceBytes": 3192601,
+      "width": 3870,
+      "height": 2583,
+      "attrs": {
+        "x": "0",
+        "y": "0",
+        "width": "3870",
+        "height": "2583",
+        "preserveAspectRatio": "xMidYMid meet"
+      }
+    }
+  ]
+}
