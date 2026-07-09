@@ -1,4 +1,7 @@
 import { JoinForm } from "@/components/site/join-form";
+import { getRouteMetadata } from "@/lib/seo";
+
+export const metadata = getRouteMetadata("/join");
 
 type JoinPageProps = {
   searchParams: Promise<{

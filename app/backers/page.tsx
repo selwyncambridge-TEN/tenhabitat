@@ -2,7 +2,10 @@ import Image from "next/image";
 
 import { CtaLink } from "@/components/site/cta-link";
 import { ImageFrame } from "@/components/site/image-frame";
+import { getRouteMetadata } from "@/lib/seo";
 import { backerPoints, siteAssets } from "@/lib/site";
+
+export const metadata = getRouteMetadata("/backers");
 
 export default function BackersPage() {
   return (
