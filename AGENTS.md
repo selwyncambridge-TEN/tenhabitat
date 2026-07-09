@@ -86,7 +86,8 @@ Primary audiences:
 
 Approved initial routes:
 
-- `/` - main Venture Habitat landing page.
+- `/` - Splash entry page.
+- `/home` - main Venture Habitat homepage.
 - `/builders` - builder audience page.
 - `/backers` - institutional backer page.
 - `/investors` - investor and diaspora partner page.

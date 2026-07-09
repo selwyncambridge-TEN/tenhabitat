@@ -9,6 +9,10 @@ import { BrandWordmark } from "@/components/site/brand-wordmark";
 import { cn } from "@/lib/utils";
 import { routes } from "@/lib/site";
 
+function isActiveRoute(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,9 +30,7 @@ export function SiteHeader() {
             <Link
               className={cn(
                 "flex h-16 items-center border-b-[3px] pt-[3px] text-[15px] font-medium tracking-[0.3px] text-white/85 transition hover:text-gold",
-                pathname === route.href || (route.href !== "/" && pathname.startsWith(route.href))
-                  ? "border-gold text-gold"
-                  : "border-transparent",
+                isActiveRoute(pathname, route.href) ? "border-gold text-gold" : "border-transparent",
               )}
               href={route.href}
               key={route.href}
@@ -64,9 +66,7 @@ export function SiteHeader() {
             <Link
               className={cn(
                 "border-b border-white/10 py-3.5 text-lg font-medium text-white/85",
-                pathname === route.href || (route.href !== "/" && pathname.startsWith(route.href))
-                  ? "text-gold"
-                  : "hover:text-gold",
+                isActiveRoute(pathname, route.href) ? "text-gold" : "hover:text-gold",
               )}
               href={route.href}
               key={route.href}

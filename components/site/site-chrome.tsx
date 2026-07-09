@@ -12,9 +12,9 @@ type SiteChromeProps = {
 
 export function SiteChrome({ children }: SiteChromeProps) {
   const pathname = usePathname();
-  const isWelcome = pathname === "/welcome";
+  const isSplash = pathname === "/";
 
-  if (isWelcome) {
+  if (isSplash) {
     return children;
   }
 

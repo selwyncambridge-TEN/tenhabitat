@@ -14,8 +14,9 @@ Primary audiences:
 
 Implemented routes:
 
-- `/` - main Venture Habitat landing page
-- `/welcome` - optional splash / transition entry page
+- `/` - Splash entry page
+- `/home` - main Venture Habitat homepage
+- `/welcome` - redirect to `/` for compatibility with the earlier scaffold
 - `/builders` - builder audience page
 - `/backers` - institutional backer page
 - `/investors` - investor and diaspora partner page
@@ -44,7 +45,8 @@ The first production website pass has been implemented from the Claude Design de
 Included:
 
 - Next.js App Router site shell with fixed responsive navigation and footer
-- implemented pages for `/`, `/welcome`, `/builders`, `/backers`, `/investors`, and `/join`
+- implemented pages for `/`, `/home`, `/builders`, `/backers`, `/investors`, and `/join`
+- compatibility redirect from `/welcome` to `/`
 - approved Jost typography and TEN Habitat color tokens
 - approved handoff photography served from `public/images/`
 - role-prefilled founding community form via `/join?role=builder`, `/join?role=backer`, or `/join?role=investor`

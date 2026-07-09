@@ -1,12 +1,12 @@
 import { expect, test } from "@playwright/test";
 
 const routes = [
-  { path: "/", heading: "While everyone is hunting the next unicorn" },
+  { path: "/", heading: "After nearly two decades" },
+  { path: "/home", heading: "While everyone is hunting the next unicorn" },
   { path: "/builders", heading: "Are you a Builder?" },
   { path: "/backers", heading: "Are you a Backer?" },
   { path: "/investors", heading: "You’ve always sent something home." },
   { path: "/join", heading: "Join the Founding Community" },
-  { path: "/welcome", heading: "After nearly two decades" },
 ] as const;
 
 test.describe("TEN Habitat website", () => {
@@ -50,7 +50,7 @@ test.describe("TEN Habitat website", () => {
 
   test("mobile menu opens and navigates", async ({ page }) => {
     await page.setViewportSize({ height: 844, width: 390 });
-    await page.goto("/");
+    await page.goto("/home");
 
     await page.getByRole("button", { name: "Open menu" }).click();
     await expect(page.getByRole("navigation", { name: "Mobile primary" })).toBeVisible();
@@ -59,5 +59,12 @@ test.describe("TEN Habitat website", () => {
 
     await expect(page).toHaveURL(/\/backers$/);
     await expect(page.getByText("Are you a Backer?")).toBeVisible();
+  });
+
+  test("/welcome redirects to the splash landing page", async ({ page }) => {
+    await page.goto("/welcome");
+
+    await expect(page).toHaveURL(/\/$/);
+    await expect(page.getByText("After nearly two decades")).toBeVisible();
   });
 });

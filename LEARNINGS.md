@@ -38,6 +38,8 @@ Each rule should be:
 
 ## Design
 
+- (2026-07-08) Rule: Preserve the Claude Design handoff’s splash-first routing: `/` should load the Splash entry page, and the Venture Habitat homepage should be a distinct home route such as `/home` unless Chris explicitly approves a different entry model.
+  Why: The first implementation treated the splash as secondary `/welcome`, but Chris corrected that the landing page is supposed to be the Splash page.
 - (2026-07-08) Rule: Keep `DESIGN.md` as a substantive design contract with principles, anti-patterns, visual foundations, component rules, accessibility, and QA expectations; do not leave it as a thin placeholder when a fuller pattern is available.
   Why: The initial TEN Habitat design guide was too sparse compared with the stronger design-contract pattern used in reference repos.
 - (2026-07-08) Rule: Use Jost as the approved production font for the current TEN Habitat website direction.

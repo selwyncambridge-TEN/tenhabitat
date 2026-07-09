@@ -63,7 +63,8 @@ Current Figma source:
 
 Initial route intent:
 
-- `/` introduces Venture Habitat and the founding community.
+- `/` is the Splash entry page from the Claude Design handoff.
+- `/home` introduces Venture Habitat and the founding community.
 - `/builders` speaks to founders, entrepreneurs, and entrepreneur support organizations.
 - `/backers` speaks to governments, development institutions, credit unions, and corporates.
 - `/investors` speaks to diaspora, investors, and capital partners.
