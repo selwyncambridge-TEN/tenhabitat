@@ -49,7 +49,7 @@ Tiebreakers:
 
 ### Current State
 
-This repo now has a technical scaffold for the approved stack. Product positioning, initial routes, stack, hosting, forms, and database direction are captured below and in `README.md`. The public website itself is not built yet; current routes are placeholders. Treat detailed final copy, final brand assets, production domain, analytics, and final form fields as undecided until confirmed by Chris or Selwyn Cambridge.
+This repo now has the approved technical scaffold and the first production website pass from the Claude Design handoff. Product positioning, implemented routes, stack, hosting, forms, and database direction are captured below and in `README.md`. Treat production domain, analytics, and any future content revisions as undecided until confirmed by Chris or Selwyn Cambridge.
 
 ### Do Not
 

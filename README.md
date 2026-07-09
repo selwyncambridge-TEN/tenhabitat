@@ -2,7 +2,7 @@
 
 Website repository for TEN Habitat, developed for Selwyn Cambridge.
 
-This site is being scaffolded as the public transition into **Venture Habitat**: a founding-community and venture-building platform for converting Caribbean entrepreneurial activity into investable businesses.
+This site is the public transition into **Venture Habitat**: a founding-community and venture-building platform for converting Caribbean entrepreneurial activity into investable businesses.
 
 ## Approved Direction
 
@@ -12,9 +12,10 @@ Primary audiences:
 - **Backers:** governments, development institutions, credit unions, and corporates
 - **Investors:** diaspora, investors, and capital partners
 
-Initial route plan:
+Implemented routes:
 
 - `/` - main Venture Habitat landing page
+- `/welcome` - optional splash / transition entry page
 - `/builders` - builder audience page
 - `/backers` - institutional backer page
 - `/investors` - investor and diaspora partner page
@@ -36,21 +37,24 @@ Primary call to action: join the founding community.
 - Netlify Database for simple relational data
 - Zod for validation
 
-## Current Scaffold
+## Current Website
 
-The technical scaffold is installed. The public website itself is not built yet.
+The first production website pass has been implemented from the Claude Design developer handoff.
 
 Included:
 
-- Next.js App Router project shell
-- placeholder routes for `/`, `/builders`, `/backers`, `/investors`, and `/join`
+- Next.js App Router site shell with fixed responsive navigation and footer
+- implemented pages for `/`, `/welcome`, `/builders`, `/backers`, `/investors`, and `/join`
+- approved Jost typography and TEN Habitat color tokens
+- approved handoff photography served from `public/images/`
+- role-prefilled founding community form via `/join?role=builder`, `/join?role=backer`, or `/join?role=investor`
 - Tailwind CSS v4 setup
 - shadcn/ui configuration and utility foundation
 - Netlify build configuration
 - Netlify Function scaffold at `/api/community-signup`
 - Netlify Database migration for `community_signups`
-- Zod validation schema for future signup submissions
-- Playwright smoke tests for scaffolded routes
+- Zod validation schema for signup submissions
+- Playwright route, form, and mobile navigation coverage
 
 ## Design Source
 
