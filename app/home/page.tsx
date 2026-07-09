@@ -2,7 +2,10 @@ import Image from "next/image";
 
 import { CtaLink } from "@/components/site/cta-link";
 import { ImageFrame } from "@/components/site/image-frame";
+import { getRouteMetadata } from "@/lib/seo";
 import { homeStats, pathCards, siteAssets } from "@/lib/site";
+
+export const metadata = getRouteMetadata("/home");
 
 export default function HomePage() {
   return (

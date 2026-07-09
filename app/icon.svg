@@ -1,0 +1,5 @@
+<svg aria-label="TEN Habitat" role="img" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect fill="#1A1008" height="64" rx="12" width="64" />
+  <path d="M16 20h32v7H36v17h-8V27H16z" fill="#F0B323" />
+  <path d="M18 47h28" stroke="#FFFFFF" stroke-linecap="round" stroke-width="4" />
+</svg>

@@ -2,7 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { BrandWordmark } from "@/components/site/brand-wordmark";
+import { getRouteMetadata } from "@/lib/seo";
 import { siteAssets } from "@/lib/site";
+
+export const metadata = getRouteMetadata("/");
 
 export default function SplashPage() {
   return (

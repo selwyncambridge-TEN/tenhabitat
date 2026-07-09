@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+import { absoluteUrl, seoRoutes, socialImage } from "../../lib/seo";
+
 const routes = [
   { path: "/", heading: "After nearly two decades" },
   { path: "/home", heading: "While everyone is hunting the next unicorn" },
@@ -66,5 +68,77 @@ test.describe("TEN Habitat website", () => {
 
     await expect(page).toHaveURL(/\/$/);
     await expect(page.getByText("After nearly two decades")).toBeVisible();
+  });
+});
+
+test.describe("TEN Habitat SEO", () => {
+  for (const [path, seo] of Object.entries(seoRoutes)) {
+    test(`${path} has unique crawl and social metadata`, async ({ page }) => {
+      await page.goto(path);
+
+      await expect(page).toHaveTitle(seo.title);
+      await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+        "content",
+        seo.description,
+      );
+      const expectedCanonical = path === "/" ? "https://tenhabitat.com" : absoluteUrl(path);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+        "href",
+        expectedCanonical,
+      );
+      await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+        "content",
+        seo.title,
+      );
+      await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
+        "content",
+        seo.description,
+      );
+      await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+        "content",
+        absoluteUrl(socialImage.url),
+      );
+      await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+        "content",
+        "summary_large_image",
+      );
+      expect(await page.locator('link[rel="icon"][href*="icon.svg"]').count()).toBeGreaterThan(0);
+    });
+  }
+
+  test("robots, sitemap, and Organization schema are available", async ({ page, request }) => {
+    const robots = await request.get("/robots.txt");
+    await expect(robots).toBeOK();
+    expect(robots.headers()["content-type"]).toContain("text/plain");
+    await expect(await robots.text()).toContain("Sitemap: https://tenhabitat.com/sitemap.xml");
+
+    const sitemap = await request.get("/sitemap.xml");
+    await expect(sitemap).toBeOK();
+    expect(sitemap.headers()["content-type"]).toContain("xml");
+    const sitemapXml = await sitemap.text();
+    for (const path of Object.keys(seoRoutes)) {
+      expect(sitemapXml).toContain(`<loc>${absoluteUrl(path)}</loc>`);
+    }
+
+    await page.goto("/");
+    const jsonLd = await page.locator('script[type="application/ld+json"]').textContent();
+    const structuredData = JSON.parse(jsonLd ?? "{}") as {
+      "@graph"?: Array<{ "@type"?: string; name?: string; url?: string }>;
+    };
+
+    expect(structuredData["@graph"]).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          "@type": "Organization",
+          name: "TEN Habitat",
+          url: "https://tenhabitat.com",
+        }),
+        expect.objectContaining({
+          "@type": "WebSite",
+          name: "TEN Habitat",
+          url: "https://tenhabitat.com",
+        }),
+      ]),
+    );
   });
 });
