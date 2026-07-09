@@ -133,6 +133,7 @@ Rules:
 
 Typography should carry identity before decoration does.
 
+- Use **Jost** as the approved production font for the current TEN Habitat website direction.
 - Use a distinctive, readable display face only after font licensing and brand fit are clear.
 - Use a highly legible body face for paragraphs, navigation, forms, and dense content.
 - Use monospace only for technical identifiers, timestamps, code, or machine-like labels if such content exists.

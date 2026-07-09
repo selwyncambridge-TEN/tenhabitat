@@ -19,7 +19,7 @@ The files in this bundle are **design references created in HTML** — a working
 ## Fidelity
 **High-fidelity.** Colors, typography, spacing, copy, and interactions are final. Recreate pixel-perfectly. All copy in the prototype is approved — do not rewrite it.
 
-**Content caveat:** the statistics (500+ founders, US$6M+ raised, 1,000+ jobs, US$350M invested, 70% undercapitalised, <3% export) are estimates pending verification before launch. The prototype has a `showStats` flag that hides them globally — build the real site so these figures are easy to remove or update (CMS field or config flag).
+**Content note:** the statistics (500+ founders, US$6M+ raised, 1,000+ jobs, US$350M invested, 70% undercapitalised, <3% export) are approved source content. Build the real site so these figures are centralized and easy to update if Chris or Selwyn Cambridge later revises them.
 
 ## Design Tokens
 
@@ -154,7 +154,7 @@ Fluid, content-driven (no hard-coded page variants):
 ## State Management
 - `route` (current page), `menuOpen` (mobile nav), `narrow` (viewport < 920px)
 - Join form: `{ name, email, role, country }`, `submitted`, `error`; role settable from CTAs
-- Optional flags: `startOnSplash` (skip splash), `showStats` (hide unverified figures)
+- Optional flags: `startOnSplash` (skip splash), `showStats` (content-management toggle for the approved statistics)
 
 ## Assets (`assets/`)
 All photography is from the client's Figma source file (page 06 — Source Photos). Filenames describe usage:

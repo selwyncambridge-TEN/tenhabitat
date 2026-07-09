@@ -40,12 +40,12 @@ Each rule should be:
 
 - (2026-07-08) Rule: Keep `DESIGN.md` as a substantive design contract with principles, anti-patterns, visual foundations, component rules, accessibility, and QA expectations; do not leave it as a thin placeholder when a fuller pattern is available.
   Why: The initial TEN Habitat design guide was too sparse compared with the stronger design-contract pattern used in reference repos.
-- (2026-07-08) Rule: Use Futura as the intended font when recreating the current Canva-derived TEN Habitat mockups in Figma or code, unless Chris or Selwyn later approves a different typeface.
-  Why: Chris confirmed Canva reports the mockup font as Futura after the first agent pass incorrectly inferred Dosis from visual inspection.
+- (2026-07-08) Rule: Use Jost as the approved production font for the current TEN Habitat website direction.
+  Why: Futura was the original Canva mockup font, but Chris later approved Jost after Claude Design produced the developer handoff using Jost.
 - (2026-07-08) Rule: Treat the current Canva website SVG and PNG exports as transparency-aware assets; do not infer white or black section backgrounds from areas that may simply be transparent canvas.
   Why: Chris confirmed both the SVG and PNG pages were exported with transparent backgrounds, which means background reconstruction must inspect alpha and explicit SVG fills instead of relying on how a viewer composites the files.
 - (2026-07-08) Rule: Treat the claims and statistics in the current TEN Habitat Figma/Canva pages as accurate approved source content unless Chris or Selwyn later revises them.
-  Why: Chris corrected the design review assumption that the visible statistics were unsupported; they are accurate and should not be marked or softened as unsourced.
+  Why: Chris corrected the design review assumption that the visible statistics still needed verification; they are accurate and approved.
 
 ## Code
 

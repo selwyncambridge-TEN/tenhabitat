@@ -34,7 +34,7 @@ Repo links document the source of truth, but they do not grant access. Claude De
 
 - Treat the Figma file as the active visual/design source.
 - Treat visible claims and statistics in the current Figma pages as approved source content unless Chris or Selwyn Cambridge later revises them.
-- Futura is the intended Canva font for the current mockups unless Chris or Selwyn approves a different production typeface.
+- Jost is the approved production font for the current website direction.
 - The current designs need refinement into a coherent website system before implementation.
 - Do not use exported SVG pages as production pages. Rebuild the site as semantic, responsive HTML/CSS with accessible text, optimized images, and real forms.
 
