@@ -52,6 +52,16 @@ Included:
 - Zod validation schema for future signup submissions
 - Playwright smoke tests for scaffolded routes
 
+## Design Source
+
+The live Figma file is the current visual/design source for the TEN Habitat website:
+
+- Figma file: https://www.figma.com/design/w3otvdvP7LwujMS0DkUHIW/TENHabitat
+- File key: `w3otvdvP7LwujMS0DkUHIW`
+- Handoff notes: [`docs/design-handoff.md`](./docs/design-handoff.md)
+
+The Figma links in this repo document the source of truth but do not grant access. Claude Design or any other design agent must have Figma access through its connected integration, Figma account/team permissions, or a suitable shared file permission.
+
 Common commands:
 
 ```bash
@@ -65,7 +75,7 @@ pnpm dev:netlify
 
 ## Presentation And Data Layer
 
-The presentation layer should be mostly static, fast, semantic, and accessible. The SVG mockups from the transition site are visual references, not production source files.
+The presentation layer should be mostly static, fast, semantic, and accessible. The live Figma designs are the visual source of truth, but they should still be rebuilt as semantic, responsive website sections rather than embedded as exported pages.
 
 The data layer should use Netlify Database for simple relational records such as founding community signups and inquiry messages. Browser submissions should go through server-side validation before writing to the database.
 
@@ -202,3 +212,5 @@ bash scripts/regenerate-agents-md.sh --check
 - `AGENTS.md` - generated mirror of `CLAUDE.md`
 - `LEARNINGS.md` - durable corrections and repo-specific lessons
 - `DESIGN.md` - initial design direction and guardrails
+- `docs/design-handoff.md` - Figma source links, page nodes, responsive frame IDs, Claude Design prompt, and developer handoff links
+- `docs/handoffs/claude-design/` - Claude Design developer handoff archive, extracted reference, assets, and screenshots

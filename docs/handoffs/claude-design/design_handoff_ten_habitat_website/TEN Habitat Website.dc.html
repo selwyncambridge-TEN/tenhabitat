@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+html, body { margin: 0; padding: 0; }
+body { font-family: 'Jost', sans-serif; background: #F7F5EF; color: #191919; -webkit-font-smoothing: antialiased; }
+a { color: #E8B000; }
+a:hover { color: #F6D00A; }
+input, button, select, textarea { font-family: 'Jost', sans-serif; }
+input::placeholder { color: #9AA6AC; }
+</style>
+</helmet>
+
+<!-- ═══════════════ 00 · SPLASH ═══════════════ -->
+<sc-if value="{{ isSplash }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="00 · Splash" style="position:relative;min-height:100svh;background:#1A1008;overflow:hidden;display:flex;flex-direction:column;">
+    <img src="assets/hero-seedling-hd.jpg" alt="A seedling sprouting from a seed in rich soil" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;">
+    <div style="position:absolute;inset:0;background:linear-gradient(92deg, rgba(26,16,8,0.9) 0%, rgba(26,16,8,0.66) 46%, rgba(26,16,8,0.1) 100%);"></div>
+    <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px clamp(20px,4vw,48px);">
+      <a onClick="{{ enterSite }}" style="display:flex;align-items:baseline;gap:6px;cursor:pointer;text-decoration:none;">
+        <span style="font-weight:700;font-size:16px;letter-spacing:2px;color:#E8B000;">TEN</span>
+        <span style="font-weight:400;font-size:16px;letter-spacing:2px;color:#FFFFFF;">HABITAT</span>
+      </a>
+      <a onClick="{{ enterSite }}" style="font-weight:500;font-size:14px;letter-spacing:1px;color:rgba(255,255,255,0.7);cursor:pointer;text-decoration:none;" style-hover="color:#F6D00A;">Skip intro →</a>
+    </div>
+    <div style="position:relative;flex:1;display:flex;align-items:center;">
+      <div style="max-width:1200px;width:100%;margin:0 auto;box-sizing:border-box;padding:24px clamp(20px,4.5vw,56px) 80px;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,72px);">
+        <img src="assets/ten-habitat-logo.png" alt="TEN Habitat — The Entrepreneurial Network" style="height:clamp(140px,24vh,300px);width:auto;flex-shrink:0;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.4));">
+        <div style="max-width:560px;display:flex;flex-direction:column;align-items:flex-start;gap:26px;">
+          <h1 style="margin:0;font-size:clamp(29px,4.3vw,48px);line-height:1.16;font-weight:700;color:#FFFFFF;text-wrap:pretty;">After nearly two decades of helping Caribbean businesses start and grow… <span style="color:#F6D00A;">we are nurturing something new.</span></h1>
+          <button onClick="{{ enterSite }}" style="display:inline-flex;align-items:center;gap:8px;background:#F6D00A;color:#191919;border:none;border-radius:8px;padding:16px 30px;font-size:18px;font-weight:600;letter-spacing:0.2px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.3);" style-hover="background:#E8B000;">Explore Venture Habitat →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<!-- ═══════════════ SITE SHELL: NAV ═══════════════ -->
+<sc-if value="{{ showShell }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(26,16,8,0.97);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(255,255,255,0.08);">
+    <div style="max-width:1240px;margin:0 auto;box-sizing:border-box;padding:0 clamp(16px,3vw,40px);height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+      <a onClick="{{ enterSite }}" style="display:flex;align-items:baseline;gap:6px;cursor:pointer;text-decoration:none;">
+        <span style="font-weight:700;font-size:15px;letter-spacing:2px;color:#E8B000;">TEN</span>
+        <span style="font-weight:400;font-size:15px;letter-spacing:2px;color:#FFFFFF;">HABITAT</span>
+      </a>
+      <sc-if value="{{ isWide }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:clamp(18px,2.4vw,32px);">
+          <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="4">
+            <a onClick="{{ link.go }}" style="display:flex;align-items:center;height:64px;box-sizing:border-box;padding-top:3px;border-bottom:3px solid {{ link.bar }};font-weight:500;font-size:15px;letter-spacing:0.3px;color:{{ link.color }};cursor:pointer;text-decoration:none;" style-hover="color:#F6D00A;">{{ link.label }}</a>
+          </sc-for>
+          <button onClick="{{ goJoin }}" style="background:#F6D00A;color:#1A1008;border:none;border-radius:6px;padding:11px 18px;font-size:13px;font-weight:700;letter-spacing:0.5px;cursor:pointer;" style-hover="background:#E8B000;">Join the Community</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isNarrow }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ toggleMenu }}" aria-label="Menu" style="background:none;border:none;color:#FFFFFF;font-size:24px;line-height:1;cursor:pointer;padding:8px;">{{ menuIcon }}</button>
+      </sc-if>
+    </div>
+  </div>
+  <div style="height:64px;"></div>
+  <sc-if value="{{ showMobileMenu }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;top:64px;left:0;right:0;z-index:55;background:rgba(26,16,8,0.98);padding:14px 24px 28px;display:flex;flex-direction:column;box-shadow:0 20px 34px rgba(0,0,0,0.4);">
+      <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="4">
+        <a onClick="{{ link.go }}" style="padding:14px 4px;font-size:18px;font-weight:500;color:{{ link.color }};cursor:pointer;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.09);">{{ link.label }}</a>
+      </sc-for>
+      <button onClick="{{ goJoin }}" style="margin-top:18px;background:#F6D00A;color:#1A1008;border:none;border-radius:8px;padding:15px 20px;font-size:16px;font-weight:700;letter-spacing:0.4px;cursor:pointer;">Join the Community</button>
+    </div>
+  </sc-if>
+
+  <!-- ═══════════════ 01 · HOME / VENTURE HABITAT ═══════════════ -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Home · Hero" style="position:relative;background:#1A1008;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(640px 420px at 88% 12%, rgba(232,176,0,0.13), transparent 70%);"></div>
+      <div style="position:relative;max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(56px,8vw,96px) clamp(20px,4.5vw,56px);display:grid;grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr));gap:clamp(32px,5vw,72px);align-items:center;">
+        <div>
+          <p style="margin:0 0 16px;font-weight:700;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#E8B000;">Venture Habitat</p>
+          <h1 style="margin:0 0 18px;font-size:clamp(31px,4.4vw,52px);line-height:1.1;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#FF7300;text-wrap:pretty;">While everyone is hunting the next unicorn</h1>
+          <p style="margin:0 0 14px;font-size:clamp(19px,2.2vw,24px);line-height:1.45;color:#FFFFFF;text-wrap:pretty;">We’ve decided to build the conditions that turn thousands of ordinary businesses into <strong style="color:#F6D00A;font-weight:700;">the backbone of tomorrow’s economy.</strong></p>
+          <p style="margin:0 0 32px;font-size:17px;line-height:1.55;font-style:italic;color:rgba(255,255,255,0.72);max-width:52ch;">Because when ordinary businesses are given the opportunity to become extraordinary, economies transform — and returns compound.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;">
+            <button onClick="{{ goJoin }}" style="background:#F6D00A;color:#191919;border:none;border-radius:8px;padding:16px 28px;font-size:17px;font-weight:600;letter-spacing:0.2px;cursor:pointer;box-shadow:0 6px 18px rgba(246,208,10,0.22);" style-hover="background:#E8B000;">Join the Founding Community</button>
+            <button onClick="{{ scrollToPaths }}" style="background:transparent;color:#FFFFFF;border:1.5px solid rgba(255,255,255,0.45);border-radius:8px;padding:16px 26px;font-size:17px;font-weight:500;cursor:pointer;" style-hover="border-color:#F6D00A;color:#F6D00A;">Choose your path ↓</button>
+          </div>
+        </div>
+        <img src="assets/vh-feature.png" alt="A young Caribbean baker in his apron, arms crossed" style="width:100%;max-height:540px;object-fit:cover;object-position:center 18%;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,0.45);display:block;">
+      </div>
+    </div>
+
+    <div data-screen-label="Home · Legacy" style="background:#F7F5EF;">
+      <div style="max-width:1000px;margin:0 auto;box-sizing:border-box;padding:clamp(64px,9vw,110px) clamp(20px,4.5vw,56px);text-align:center;">
+        <h2 style="margin:0;font-size:clamp(26px,3.4vw,40px);line-height:1.3;font-weight:600;color:#34444C;text-wrap:pretty;">For nearly two decades, <span style="color:#E8B000;font-weight:700;">TEN Habitat</span> has helped Caribbean founders start and grow.</h2>
+        <sc-if value="{{ statsOn }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(30px,6vw,76px);margin-top:clamp(36px,5vw,56px);">
+            <sc-for list="{{ homeStats }}" as="stat" hint-placeholder-count="3">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;min-width:170px;">
+                <span style="font-size:clamp(38px,4.5vw,54px);font-weight:700;line-height:1;color:#E8B000;">{{ stat.value }}</span>
+                <span style="font-size:16px;letter-spacing:0.4px;color:#64747C;">{{ stat.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <div data-screen-label="Home · Conversion Layer" style="position:relative;overflow:hidden;">
+      <img src="assets/vh-community-group.jpg" alt="The TEN Habitat community gathered together" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;">
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(26,16,8,0.86), rgba(26,16,8,0.72));"></div>
+      <div style="position:relative;max-width:900px;margin:0 auto;box-sizing:border-box;padding:clamp(72px,10vw,130px) clamp(20px,4.5vw,56px);text-align:center;">
+        <p style="margin:0 0 14px;font-size:clamp(19px,2.2vw,24px);color:rgba(255,255,255,0.85);">Now comes the layer we were always missing.</p>
+        <h2 style="margin:0 0 14px;font-size:clamp(30px,4.2vw,48px);line-height:1.15;font-weight:700;"><span style="color:#F6D00A;">Venture Habitat:</span> <span style="color:#FFFFFF;">the conversion layer</span></h2>
+        <p style="margin:0;font-size:clamp(20px,2.4vw,26px);line-height:1.4;color:rgba(255,255,255,0.9);">between entrepreneurial activity and investable businesses.</p>
+      </div>
+    </div>
+
+    <div data-screen-label="Home · Choose Your Path" id="vh-paths" style="background:#FFFFFF;">
+      <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(64px,9vw,110px) clamp(20px,4.5vw,56px);">
+        <div style="text-align:center;margin-bottom:clamp(36px,5vw,56px);">
+          <p style="margin:0 0 12px;font-weight:700;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#E8B000;">Choose where you belong</p>
+          <h2 style="margin:0;font-size:clamp(28px,3.8vw,44px);line-height:1.15;font-weight:700;color:#191919;">Build the future with us</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(280px,100%), 1fr));gap:clamp(20px,3vw,32px);">
+          <div style="background:#FFFFFF;border:1px solid #E8E2D4;border-radius:16px;overflow:hidden;box-shadow:0 10px 28px rgba(17,24,28,0.08);display:flex;flex-direction:column;">
+            <img src="assets/path-building.jpg" alt="Founders working through ideas together at a chalkboard" style="width:100%;height:208px;object-fit:cover;display:block;">
+            <div style="box-sizing:border-box;padding:26px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1;">
+              <h3 style="margin:0;font-size:23px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:#191919;">I’m Building</h3>
+              <p style="margin:0;font-size:17px;line-height:1.5;color:#34444C;flex:1;">Founders, Entrepreneurs and Ecosystem Builders growing businesses that matter.</p>
+              <a onClick="{{ goBuilders }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;border:1.5px solid #191919;border-radius:999px;padding:10px 20px;font-size:15px;font-weight:600;color:#191919;cursor:pointer;text-decoration:none;" style-hover="background:#F6D00A;border-color:#F6D00A;color:#191919;">Explore Builders →</a>
+            </div>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid #E8E2D4;border-radius:16px;overflow:hidden;box-shadow:0 10px 28px rgba(17,24,28,0.08);display:flex;flex-direction:column;">
+            <img src="assets/path-backing.jpg" alt="Institutional partners meeting around a table" style="width:100%;height:208px;object-fit:cover;display:block;">
+            <div style="box-sizing:border-box;padding:26px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1;">
+              <h3 style="margin:0;font-size:23px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:#191919;">I’m Backing</h3>
+              <p style="margin:0;font-size:17px;line-height:1.5;color:#34444C;flex:1;">Governments, Development Institutions, Credit Unions and Corporates shaping the future of enterprise.</p>
+              <a onClick="{{ goBackers }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;border:1.5px solid #191919;border-radius:999px;padding:10px 20px;font-size:15px;font-weight:600;color:#191919;cursor:pointer;text-decoration:none;" style-hover="background:#F6D00A;border-color:#F6D00A;color:#191919;">Explore Backers →</a>
+            </div>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid #E8E2D4;border-radius:16px;overflow:hidden;box-shadow:0 10px 28px rgba(17,24,28,0.08);display:flex;flex-direction:column;">
+            <img src="assets/path-investing.jpg" alt="Investors and diaspora partners collaborating" style="width:100%;height:208px;object-fit:cover;display:block;">
+            <div style="box-sizing:border-box;padding:26px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1;">
+              <h3 style="margin:0;font-size:23px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:#191919;">I’m Investing</h3>
+              <p style="margin:0;font-size:17px;line-height:1.5;color:#34444C;flex:1;">Diaspora, Investors and Capital Partners building stronger entrepreneurial economies.</p>
+              <a onClick="{{ goInvestors }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;border:1.5px solid #191919;border-radius:999px;padding:10px 20px;font-size:15px;font-weight:600;color:#191919;cursor:pointer;text-decoration:none;" style-hover="background:#F6D00A;border-color:#F6D00A;color:#191919;">Explore Investors →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-screen-label="Home · Vision" style="position:relative;background:#F7F5EF;overflow:hidden;">
+      <img src="assets/vision-sky-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <div style="position:relative;max-width:960px;margin:0 auto;box-sizing:border-box;padding:clamp(64px,9vw,110px) clamp(20px,4.5vw,56px) 0;text-align:center;">
+        <h3 style="margin:0 0 16px;font-size:clamp(21px,2.6vw,29px);line-height:1.3;font-weight:600;color:#728D9B;">The future won’t be built by one extraordinary company.</h3>
+        <h2 style="margin:0;font-size:clamp(29px,4vw,46px);line-height:1.18;font-weight:700;color:#FF7300;text-wrap:pretty;">It will be built by thousands of businesses given the opportunity to <span style="text-transform:uppercase;">become extraordinary.</span></h2>
+        <img src="assets/hands-raised.png" alt="Many hands raised together" style="display:block;width:min(620px,92%);margin:clamp(28px,4vw,44px) auto 0;">
+      </div>
+    </div>
+
+    <div data-screen-label="Home · Launch CTA" style="position:relative;background:#1A1008;overflow:hidden;">
+      <img src="assets/collage-warm-bg.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.14;">
+      <div style="position:relative;max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(64px,9vw,110px) clamp(20px,4.5vw,56px);display:grid;grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr));gap:clamp(32px,5vw,72px);align-items:center;">
+        <div>
+          <p style="margin:0 0 16px;font-weight:700;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#F6D00A;">Launching soon</p>
+          <h2 style="margin:0 0 18px;font-size:clamp(28px,3.8vw,44px);line-height:1.15;font-weight:700;color:#FFFFFF;">Venture Habitat launches soon.</h2>
+          <p style="margin:0 0 30px;font-size:clamp(17px,2vw,20px);line-height:1.55;color:rgba(255,255,255,0.78);max-width:54ch;">Be among the first to benefit from the interventions, partnership and funding opportunities shaping our new way to build entrepreneurial economies.</p>
+          <button onClick="{{ goJoin }}" style="background:#F6D00A;color:#191919;border:none;border-radius:8px;padding:16px 28px;font-size:17px;font-weight:600;letter-spacing:0.2px;cursor:pointer;box-shadow:0 6px 18px rgba(246,208,10,0.22);" style-hover="background:#E8B000;">Join the Founding Community</button>
+        </div>
+        <img src="assets/vh-collage-launch.jpg" alt="A collage of TEN Habitat founders and community moments" style="width:100%;max-height:480px;object-fit:cover;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,0.45);display:block;">
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ═══════════════ 02 · BUILDERS ═══════════════ -->
+  <sc-if value="{{ isBuilders }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Builders · Hero" style="background:#FFFFFF;">
+      <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(56px,8vw,88px) clamp(20px,4.5vw,56px);">
+        <div style="text-align:center;margin-bottom:clamp(32px,4.5vw,48px);">
+          <p style="margin:0 0 12px;font-weight:700;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#E8B000;">Are you a Builder?</p>
+          <p style="margin:0;font-size:clamp(17px,2vw,20px);color:#728D9B;">For founders, entrepreneurs and entrepreneur support organisations</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(210px,100%), 1fr));gap:clamp(14px,2vw,26px);">
+          <div style="position:relative;border-radius:16px;overflow:hidden;height:clamp(240px,30vw,340px);">
+            <img src="assets/builder-3.jpg" alt="A founder working late on his laptop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(26,16,8,0.55), rgba(26,16,8,0.12));"></div>
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;box-sizing:border-box;padding:16px;font-size:clamp(26px,3.2vw,38px);font-weight:700;color:#FFFFFF;text-align:center;text-shadow:0 4px 18px rgba(0,0,0,0.5);">You didn’t</span>
+          </div>
+          <div style="position:relative;border-radius:16px;overflow:hidden;height:clamp(240px,30vw,340px);">
+            <img src="assets/builder-2.jpg" alt="A seamstress at work in her studio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(26,16,8,0.55), rgba(26,16,8,0.12));"></div>
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;box-sizing:border-box;padding:16px;font-size:clamp(26px,3.2vw,38px);font-weight:700;color:#FFFFFF;text-align:center;text-shadow:0 4px 18px rgba(0,0,0,0.5);">start a business</span>
+          </div>
+          <div style="position:relative;border-radius:16px;overflow:hidden;height:clamp(240px,30vw,340px);">
+            <img src="assets/builder-1.jpg" alt="A small boutique team reviewing plans" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(26,16,8,0.55), rgba(26,16,8,0.12));"></div>
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;box-sizing:border-box;padding:16px;font-size:clamp(26px,3.2vw,38px);font-weight:700;color:#FFFFFF;text-align:center;text-shadow:0 4px 18px rgba(0,0,0,0.5);">to stay small</span>
+          </div>
+        </div>
+        <p style="max-width:760px;margin:clamp(30px,4.5vw,44px) auto 0;font-size:clamp(18px,2.1vw,22px);line-height:1.55;text-align:center;color:#34444C;text-wrap:pretty;">Neither did we build <strong style="font-weight:700;">Venture Habitat</strong> to leave you where most systems do — full of potential, short on the structure, capital and momentum to scale.</p>
+      </div>
+    </div>
+
+    <div data-screen-label="Builders · Conversion Layer" style="position:relative;background:#0B1F2A;overflow:hidden;">
+      <img src="assets/network-navy-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55;">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(11,31,42,0.88) 0%, rgba(11,31,42,0.45) 100%);"></div>
+      <div style="position:relative;max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(72px,10vw,120px) clamp(20px,4.5vw,56px);">
+        <p style="max-width:22ch;margin:0 0 26px;font-size:clamp(24px,3vw,34px);line-height:1.35;font-weight:600;color:#FFFFFF;text-wrap:pretty;">The Caribbean has never lacked talent, ambition or ideas. What it has lacked is a <span style="color:#F6D00A;">Conversion Layer</span> that turns all of that activity into businesses capable of attracting real investment and real growth.</p>
+        <p style="margin:0;font-size:clamp(21px,2.6vw,29px);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:#F6D00A;">That layer is what we’re building.</p>
+      </div>
+    </div>
+
+    <div data-screen-label="Builders · Value" style="background:#F7F5EF;">
+      <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(64px,9vw,110px) clamp(20px,4.5vw,56px);display:grid;grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr));gap:clamp(32px,5vw,72px);align-items:center;">
+        <div>
+          <p style="margin:0 0 22px;font-size:clamp(18px,2.1vw,22px);line-height:1.55;color:#34444C;text-wrap:pretty;"><strong style="font-weight:700;">Venture Habitat</strong> is designed to move you from a promising Micro, Small or Medium business to an investable one — through structured progression, a community of builders around you, and a direct line to the capital and opportunities that usually stay out of reach.</p>
+          <p style="margin:0 0 12px;font-size:clamp(19px,2.2vw,24px);line-height:1.4;font-weight:700;color:#191919;">Not another workshop. Not another certificate.</p>
+          <p style="margin:0;font-size:clamp(18px,2.1vw,22px);line-height:1.5;color:#34444C;">A system built to get you <strong style="font-weight:700;">funded, growing and connected.</strong></p>
+        </div>
+        <img src="assets/builder-value-hd.jpg" alt="An entrepreneur standing confidently in her studio" style="width:100%;max-height:500px;object-fit:cover;object-position:center 25%;border-radius:18px;box-shadow:0 18px 44px rgba(17,24,28,0.16);display:block;">
+      </div>
+    </div>
+
+    <div data-screen-label="Builders · Founding CTA" style="position:relative;background:#1A1008;overflow:hidden;">
+      <img src="assets/builder-cta-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4;">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(26,16,8,0.92) 20%, rgba(26,16,8,0.55) 100%);"></div>
+      <div style="position:relative;max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(72px,10vw,120px) clamp(20px,4.5vw,56px);">
+        <h2 style="max-width:720px;margin:0 0 16px;font-size:clamp(28px,3.8vw,44px);line-height:1.2;font-weight:700;color:#FFFFFF;text-wrap:pretty;">We’re opening this to a founding community first — for the builders who want to shape it, not just use it.</h2>
+        <p style="margin:0 0 30px;font-size:clamp(17px,2vw,20px);color:rgba(255,255,255,0.75);">Be first in line when the doors open.</p>
+        <button onClick="{{ goJoinBuilder }}" style="background:#F6D00A;color:#191919;border:none;border-radius:8px;padding:16px 28px;font-size:17px;font-weight:600;letter-spacing:0.2px;cursor:pointer;box-shadow:0 6px 18px rgba(246,208,10,0.22);" style-hover="background:#E8B000;">Join as a Founding Builder</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ═══════════════ 03 · BACKERS ═══════════════ -->
+  <sc-if value="{{ isBackers }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Backers · Hero" style="background:#F7F5EF;">
+      <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(56px,8vw,90px) clamp(20px,4.5vw,56px);display:grid;grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr));gap:clamp(32px,5vw,64px);align-items:center;">
+        <div>
+          <p style="margin:0 0 12px;font-weight:700;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#E8B000;">Are you a Backer?</p>
+          <p style="margin:0 0 26px;font-size:clamp(17px,2vw,20px);color:#728D9B;">For governments, development institutions, credit unions and corporates</p>
+          <div style="background:#FFFFFF;border-radius:16px;box-shadow:0 18px 44px rgba(17,24,28,0.1);box-sizing:border-box;padding:clamp(24px,4vw,36px);">
+            <sc-if value="{{ statsOn }}" hint-placeholder-val="{{ true }}">
+              <p style="margin:0 0 4px;font-size:18px;color:#64747C;">Across the Caribbean, more than</p>
+              <p style="margin:0 0 4px;display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;"><span style="font-size:22px;font-weight:600;color:#728D9B;">US$</span><span style="font-size:clamp(56px,7vw,84px);font-weight:700;line-height:1;color:#728D9B;">350</span><span style="font-size:22px;font-weight:600;color:#728D9B;">million</span></p>
+              <p style="margin:0 0 18px;font-size:17px;line-height:1.5;color:#64747C;">was invested in entrepreneurship support between 2020 and 2025.</p>
+              <div style="height:1px;background:#E5E9EB;margin:0 0 18px;"></div>
+              <p style="margin:0 0 8px;font-size:17px;line-height:1.5;font-weight:600;color:#34444C;">Yet roughly 70% of MSMEs remain undercapitalised, and fewer than 3% export directly.</p>
+            </sc-if>
+            <sc-if value="{{ statsOff }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0 0 8px;font-size:15px;font-style:italic;color:#9AA6AC;">Regional investment figures pending verification.</p>
+            </sc-if>
+            <p style="margin:0;font-size:clamp(18px,2.1vw,21px);font-weight:700;color:#191919;">High activity, low conversion.</p>
+          </div>
+        </div>
+        <img src="assets/path-backing.jpg" alt="Institutional partners working together at a table" style="width:100%;height:clamp(300px,38vw,460px);object-fit:cover;border-radius:18px;box-shadow:0 18px 44px rgba(17,24,28,0.16);display:block;">
+      </div>
+    </div>
+
+    <div data-screen-label="Backers · Conversion Layer" style="position:relative;background:#0B1F2A;overflow:hidden;">
+      <img src="assets/network-navy-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,31,42,0.82), rgba(11,31,42,0.66));"></div>
+      <div style="position:relative;max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(72px,10vw,120px) clamp(20px,4.5vw,56px);">
+        <h2 style="max-width:900px;margin:0 0 18px;font-size:clamp(25px,3.2vw,37px);line-height:1.3;font-weight:600;color:#FFFFFF;text-wrap:pretty;">We created <span style="color:#F6D00A;">Venture Habitat</span> as the missing conversion layer that turns entrepreneurial activity into decision-grade intelligence — so that capital can be deployed with confidence.</h2>
+        <p style="margin:0 0 34px;font-size:clamp(17px,2vw,20px);color:rgba(255,255,255,0.8);">It doesn’t replace what has already been built. It makes it work harder:</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(260px,100%), 1fr));gap:clamp(16px,2.4vw,24px);">
+          <sc-for list="{{ backerPoints }}" as="point" hint-placeholder-count="3">
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:14px;box-sizing:border-box;padding:24px;display:flex;flex-direction:column;gap:12px;">
+              <span style="font-weight:700;font-size:13px;letter-spacing:2px;color:#F6D00A;">{{ point.num }}</span>
+              <p style="margin:0;font-size:17px;line-height:1.55;color:rgba(255,255,255,0.92);">{{ point.text }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div data-screen-label="Backers · Partner CTA" style="background:#FFFFFF;">
+      <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(64px,9vw,110px) clamp(20px,4.5vw,56px);display:grid;grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr));gap:clamp(32px,5vw,72px);align-items:center;">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:clamp(26px,3.4vw,38px);line-height:1.25;font-weight:600;color:#191919;text-wrap:pretty;">We’re convening a founding group of <span style="color:#E8B000;font-weight:700;">institutional partners</span> to shape how this is built and proven in the region.</h2>
+          <p style="margin:0 0 30px;font-size:clamp(17px,2vw,20px);line-height:1.5;color:#64747C;">If you are an institutional partner interested in exploring early collaboration —</p>
+          <button onClick="{{ goJoinBacker }}" style="background:#F6D00A;color:#191919;border:none;border-radius:8px;padding:16px 28px;font-size:17px;font-weight:600;letter-spacing:0.2px;cursor:pointer;box-shadow:0 6px 18px rgba(246,208,10,0.22);" style-hover="background:#E8B000;">Let’s have a chat</button>
+        </div>
+        <img src="assets/backer-collab.png" alt="A working session at a TEN Habitat workshop" style="width:100%;height:clamp(280px,36vw,440px);object-fit:cover;border-radius:18px;box-shadow:0 18px 44px rgba(17,24,28,0.14);display:block;">
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ═══════════════ 04 · INVESTORS ═══════════════ -->
+  <sc-if value="{{ isInvestors }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Investors · Hero" style="background:#F7F5EF;">
+      <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(56px,8vw,90px) clamp(20px,4.5vw,56px);display:grid;grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr));gap:clamp(32px,5vw,64px);align-items:center;">
+        <div>
+          <p style="margin:0 0 12px;font-weight:700;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#E8B000;">Are you investing?</p>
+          <p style="margin:0 0 22px;font-size:clamp(17px,2vw,20px);color:#728D9B;">For the diaspora, investors and capital partners</p>
+          <h1 style="margin:0 0 10px;font-size:clamp(30px,4vw,46px);line-height:1.12;font-weight:700;color:#191919;">You’ve always sent something home.</h1>
+          <h2 style="margin:0 0 24px;font-size:clamp(22px,2.8vw,31px);line-height:1.25;font-weight:600;color:#728D9B;text-wrap:pretty;">What if it could become something you own a share of?</h2>
+          <p style="margin:0 0 16px;font-size:clamp(17px,2vw,20px);line-height:1.55;color:#34444C;text-wrap:pretty;">The Caribbean diaspora sends billions home every year. Governments invest. Institutions lend. Yet almost none of it is connected into a system that builds lasting economic ownership.</p>
+          <p style="margin:0;font-size:clamp(17px,2vw,20px);line-height:1.55;font-weight:600;color:#191919;text-wrap:pretty;">We think that’s the biggest missed opportunity in the region — and we’re building the system to change it.</p>
+        </div>
+        <img src="assets/investor-kitchen-couple.jpg" alt="Two business partners in their restaurant kitchen" style="width:100%;height:clamp(320px,42vw,520px);object-fit:cover;border-radius:18px;box-shadow:0 18px 44px rgba(17,24,28,0.16);display:block;">
+      </div>
+    </div>
+
+    <div data-screen-label="Investors · Value" style="background:#FFFFFF;">
+      <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(64px,9vw,110px) clamp(20px,4.5vw,56px);display:grid;grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr));gap:clamp(32px,5vw,72px);align-items:center;">
+        <img src="assets/vh-community-group.jpg" alt="The TEN Habitat community of founders gathered together" style="width:100%;height:clamp(300px,38vw,480px);object-fit:cover;object-position:center 30%;border-radius:18px;box-shadow:0 18px 44px rgba(17,24,28,0.14);display:block;">
+        <div>
+          <p style="margin:0 0 22px;font-size:clamp(18px,2.1vw,22px);line-height:1.55;color:#34444C;text-wrap:pretty;"><strong style="font-weight:700;">Venture Habitat</strong> is designed to turn everyday economic participation into a genuine stake in the region’s future — connecting the people who care about these economies with the businesses building them, and the returns that follow when ordinary businesses become extraordinary.</p>
+          <p style="margin:0;font-size:clamp(19px,2.3vw,24px);line-height:1.4;font-weight:700;color:#191919;">Support today. Ownership tomorrow. <span style="color:#E8B000;">Both, at once.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div data-screen-label="Investors · Founding CTA" style="background:#1A1008;">
+      <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(64px,9vw,110px) clamp(20px,4.5vw,56px);display:grid;grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr));gap:clamp(32px,5vw,72px);align-items:center;">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:clamp(27px,3.6vw,42px);line-height:1.22;font-weight:700;color:#FFFFFF;text-wrap:pretty;">We’re gathering a founding community of investors and <span style="color:#F6D00A;">diaspora partners</span> who want in early as the model takes shape.</h2>
+          <p style="margin:0 0 30px;font-size:clamp(17px,2vw,20px);color:rgba(255,255,255,0.75);">Be first to see how participation becomes ownership.</p>
+          <button onClick="{{ goJoinInvestor }}" style="background:#F6D00A;color:#191919;border:none;border-radius:8px;padding:16px 28px;font-size:17px;font-weight:600;letter-spacing:0.2px;cursor:pointer;box-shadow:0 6px 18px rgba(246,208,10,0.22);" style-hover="background:#E8B000;">Join as an Investor</button>
+        </div>
+        <img src="assets/investor-cta.png" alt="A diaspora investor handing over a package and reviewing plans on a laptop" style="width:100%;height:clamp(280px,36vw,440px);object-fit:cover;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,0.4);display:block;">
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ═══════════════ 05 · JOIN ═══════════════ -->
+  <sc-if value="{{ isJoin }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Join · Form" style="background:#F7F5EF;">
+      <div style="max-width:1160px;margin:0 auto;box-sizing:border-box;padding:clamp(56px,8vw,96px) clamp(20px,4.5vw,56px);display:grid;grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr));gap:clamp(32px,5vw,72px);align-items:start;">
+        <div>
+          <p style="margin:0 0 12px;font-weight:700;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#E8B000;">Founding community</p>
+          <h1 style="margin:0 0 18px;font-size:clamp(30px,4.2vw,48px);line-height:1.12;font-weight:700;color:#191919;text-wrap:pretty;">Join the Founding Community</h1>
+          <p style="margin:0 0 18px;font-size:clamp(17px,2vw,20px);line-height:1.55;color:#34444C;text-wrap:pretty;">Be among the first to benefit from the interventions, partnership and funding opportunities shaping our new way to build entrepreneurial economies.</p>
+          <p style="margin:0;font-size:clamp(17px,2vw,20px);line-height:1.55;color:#728D9B;">Built for builders. Backed for impact.</p>
+        </div>
+        <div style="background:#FFFFFF;border-radius:16px;box-shadow:0 18px 44px rgba(17,24,28,0.1);box-sizing:border-box;padding:clamp(24px,4vw,40px);">
+          <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:18px;">
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:600;letter-spacing:0.3px;color:#34444C;">Full name
+                <input value="{{ formName }}" onChange="{{ setName }}" placeholder="Your name" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1.5px solid #D9E0E3;border-radius:8px;font-size:16px;color:#191919;background:#FFFFFF;outline:none;" style-focus="border-color:#E8B000;">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:600;letter-spacing:0.3px;color:#34444C;">Email
+                <input value="{{ formEmail }}" onChange="{{ setEmail }}" placeholder="you@example.com" type="email" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1.5px solid #D9E0E3;border-radius:8px;font-size:16px;color:#191919;background:#FFFFFF;outline:none;" style-focus="border-color:#E8B000;">
+              </label>
+              <div style="display:flex;flex-direction:column;gap:7px;">
+                <span style="font-size:14px;font-weight:600;letter-spacing:0.3px;color:#34444C;">I’m joining as</span>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                  <sc-for list="{{ roleOptions }}" as="role" hint-placeholder-count="3">
+                    <button onClick="{{ role.pick }}" style="flex:1;min-width:96px;padding:12px 10px;border-radius:8px;border:1.5px solid {{ role.border }};background:{{ role.bg }};font-size:15px;font-weight:{{ role.weight }};color:#191919;cursor:pointer;">{{ role.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:600;letter-spacing:0.3px;color:#34444C;">Country or territory
+                <input value="{{ formCountry }}" onChange="{{ setCountry }}" placeholder="e.g. Barbados" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1.5px solid #D9E0E3;border-radius:8px;font-size:16px;color:#191919;background:#FFFFFF;outline:none;" style-focus="border-color:#E8B000;">
+              </label>
+              <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;font-size:14px;font-weight:500;color:#B3541E;">{{ errorText }}</p>
+              </sc-if>
+              <button onClick="{{ submitForm }}" style="width:100%;background:#F6D00A;color:#191919;border:none;border-radius:8px;padding:16px 20px;font-size:17px;font-weight:600;letter-spacing:0.2px;cursor:pointer;box-shadow:0 6px 18px rgba(246,208,10,0.25);" style-hover="background:#E8B000;">Join the Founding Community</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:24px 8px;">
+              <div style="width:64px;height:64px;border-radius:50%;background:#F6D00A;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700;color:#1A1008;">✓</div>
+              <h3 style="margin:0;font-size:26px;font-weight:700;color:#191919;">You’re on the list.</h3>
+              <p style="margin:0;font-size:17px;line-height:1.55;color:#34444C;max-width:38ch;">{{ successNote }}</p>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <div data-screen-label="Footer" style="background:#1A1008;">
+    <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(40px,6vw,60px) clamp(20px,4.5vw,56px) 26px;display:flex;flex-direction:column;gap:30px;">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:28px;">
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a onClick="{{ enterSite }}" style="display:flex;align-items:baseline;gap:6px;cursor:pointer;text-decoration:none;">
+            <span style="font-weight:700;font-size:16px;letter-spacing:2px;color:#E8B000;">TEN</span>
+            <span style="font-weight:400;font-size:16px;letter-spacing:2px;color:#FFFFFF;">HABITAT</span>
+          </a>
+          <span style="font-size:15px;color:#998C80;">Built for builders. Backed for impact.</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(18px,3vw,28px);">
+          <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="4">
+            <a onClick="{{ link.go }}" style="font-size:14px;letter-spacing:0.5px;color:rgba(255,255,255,0.8);cursor:pointer;text-decoration:none;" style-hover="color:#F6D00A;">{{ link.label }}</a>
+          </sc-for>
+          <a onClick="{{ goJoin }}" style="font-size:14px;font-weight:700;letter-spacing:0.5px;color:#F6D00A;cursor:pointer;text-decoration:none;">Join the Community</a>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.12);padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;">
+        <span style="font-size:13px;color:#998C80;">© 2026 TEN Habitat. All rights reserved.</span>
+        <span style="font-size:13px;color:#998C80;">Venture Habitat — launching soon</span>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;startOnSplash&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Experience&quot; },
+  &quot;showStats&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Content&quot; }
+}">
+class Component extends DCLogic {
+  state = {
+    routeOverride: null,
+    menuOpen: false,
+    narrow: false,
+    form: { name: "", email: "", role: "", country: "" },
+    submitted: false,
+    error: ""
+  };
+
+  static VALID = ["splash", "home", "builders", "backers", "investors", "join"];
+
+  getRoute() {
+    if (this.state.routeOverride) return this.state.routeOverride;
+    const h = (typeof location !== "undefined" ? location.hash : "").replace(/^#\/?/, "");
+    if (Component.VALID.includes(h)) return h;
+    return (this.props.startOnSplash ?? true) ? "splash" : "home";
+  }
+
+  componentDidMount() {
+    this._onResize = () => {
+      const n = window.innerWidth < 920;
+      if (n !== this.state.narrow) this.setState({ narrow: n });
+    };
+    this._onHash = () => {
+      const h = (location.hash || "").replace(/^#\/?/, "");
+      if (Component.VALID.includes(h)) {
+        this.setState({ routeOverride: h, menuOpen: false });
+      }
+    };
+    window.addEventListener("resize", this._onResize);
+    window.addEventListener("hashchange", this._onHash);
+    this._onResize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._onResize);
+    window.removeEventListener("hashchange", this._onHash);
+  }
+
+  go(route, role) {
+    const form = { ...this.state.form };
+    if (role) form.role = role;
+    this.setState({ routeOverride: route, menuOpen: false, form, error: "", submitted: route === "join" ? false : this.state.submitted });
+    try { history.replaceState(null, "", "#/" + route); } catch (e) {}
+    window.scrollTo(0, 0);
+  }
+
+  setField(key) {
+    return (e) => this.setState({ form: { ...this.state.form, [key]: e.target.value } });
+  }
+
+  renderVals() {
+    const route = this.getRoute();
+    const narrow = this.state.narrow;
+    const statsOn = this.props.showStats ?? true;
+    const go = (r, role) => () => this.go(r, role);
+
+    const navLinks = [
+      { label: "Venture Habitat", key: "home" },
+      { label: "Builders", key: "builders" },
+      { label: "Backers", key: "backers" },
+      { label: "Investors", key: "investors" }
+    ].map((l) => ({
+      label: l.label,
+      go: go(l.key),
+      color: route === l.key ? "#F6D00A" : "rgba(255,255,255,0.85)",
+      bar: route === l.key ? "#F6D00A" : "transparent"
+    }));
+
+    const roleOptions = ["Builder", "Backer", "Investor"].map((r) => {
+      const on = this.state.form.role === r;
+      return {
+        label: r,
+        pick: () => this.setState({ form: { ...this.state.form, role: r } }),
+        bg: on ? "#F6D00A" : "#FFFFFF",
+        border: on ? "#F6D00A" : "#D9E0E3",
+        weight: on ? 700 : 400
+      };
+    });
+
+    const homeStats = [
+      { value: "500+", label: "founders supported" },
+      { value: "US$6M+", label: "raised for ventures" },
+      { value: "1,000+", label: "jobs created" }
+    ];
+
+    const backerPoints = [
+      { num: "01", text: "Turns undercapitalised, thin-file MSMEs into diagnosed, structured, lendable borrowers." },
+      { num: "02", text: "Gives lenders the underwriting signal and ongoing oversight that reduce risk on both sides of the loan." },
+      { num: "03", text: "Helps structure Micro, Small and Medium businesses so they can attract the patient capital to confidently scale." }
+    ];
+
+    const f = this.state.form;
+    const roleWord = f.role ? " as a founding " + f.role.toLowerCase() : "";
+    const successNote = "Thanks" + (f.name ? ", " + f.name.split(" ")[0] : "") + " — you’ve joined the founding community" + roleWord + ". We’ll be in touch as Venture Habitat takes shape.";
+
+    return {
+      isSplash: route === "splash",
+      showShell: route !== "splash",
+      isHome: route === "home",
+      isBuilders: route === "builders",
+      isBackers: route === "backers",
+      isInvestors: route === "investors",
+      isJoin: route === "join",
+      isWide: !narrow,
+      isNarrow: narrow,
+      showMobileMenu: narrow && this.state.menuOpen,
+      menuIcon: this.state.menuOpen ? "✕" : "☰",
+      toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
+      enterSite: go("home"),
+      goJoin: go("join"),
+      goJoinBuilder: go("join", "Builder"),
+      goJoinBacker: go("join", "Backer"),
+      goJoinInvestor: go("join", "Investor"),
+      goBuilders: go("builders"),
+      goBackers: go("backers"),
+      goInvestors: go("investors"),
+      scrollToPaths: () => {
+        const el = document.getElementById("vh-paths");
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 64, behavior: "smooth" });
+      },
+      navLinks, homeStats, backerPoints, roleOptions,
+      statsOn, statsOff: !statsOn,
+      formName: f.name, formEmail: f.email, formCountry: f.country,
+      setName: this.setField("name"),
+      setEmail: this.setField("email"),
+      setCountry: this.setField("country"),
+      submitForm: () => {
+        if (!f.name.trim() || !f.email.includes("@")) {
+          this.setState({ error: "Please add your name and a valid email address." });
+          return;
+        }
+        this.setState({ submitted: true, error: "" });
+      },
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      hasError: !!this.state.error,
+      errorText: this.state.error,
+      successNote
+    };
+  }
+}
+</script>
+</body>
+</html>

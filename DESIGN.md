@@ -7,7 +7,7 @@ status: draft
 canonicalSources:
   operatingGuide: CLAUDE.md
   lessons: LEARNINGS.md
-  visualReference: TEN Habitat transition-site SVG mockups reviewed 2026-07-08
+  visualReference: Live Figma file w3otvdvP7LwujMS0DkUHIW reviewed 2026-07-08
 ---
 
 # TEN Habitat Design Contract
@@ -16,7 +16,7 @@ canonicalSources:
 
 This root `DESIGN.md` is the agent-facing design contract for the TEN Habitat website. It defines the design standards agents must preserve when creating pages, components, visual systems, content layouts, and interaction states for this repo.
 
-This file does not invent the final brand. It sets the quality bar and the decision rules from the reviewed transition-site mockups until Chris or Selwyn Cambridge provides final approved brand assets, photography, copy, typography, colors, and positioning. Once approved assets exist, update this file to make them canonical.
+This file does not invent the final brand. It sets the quality bar and the decision rules from the live Figma designs until Chris or Selwyn Cambridge provides final approved brand assets, photography, copy, typography, colors, and positioning. Once approved assets exist, update this file to make them canonical.
 
 The TEN Habitat website should feel like a Caribbean venture-building community in transition: established, optimistic, founder-centered, and serious about converting entrepreneurial activity into investable businesses. It should not feel like a generic template, a copied SaaS landing page, a placeholder brochure, or a decorative page with unverified claims.
 
@@ -24,12 +24,13 @@ The TEN Habitat website should feel like a Caribbean venture-building community 
 
 Use this order for design decisions:
 
-1. Approved brand assets, client-provided copy, client-approved imagery, and the transition-site mockups reviewed on 2026-07-08.
-2. Repo `DESIGN.md`.
-3. Repo `CLAUDE.md` for workflow, safety, and verification rules.
-4. Repo `LEARNINGS.md` for durable corrections.
-5. Existing implemented components and tokens once the site is scaffolded.
-6. Temporary design exploration notes, screenshots, or chat history.
+1. Approved brand assets, client-provided copy, client-approved imagery, and the live Figma designs reviewed on 2026-07-08.
+2. Live Figma source and handoff notes in [`docs/design-handoff.md`](./docs/design-handoff.md).
+3. Repo `DESIGN.md`.
+4. Repo `CLAUDE.md` for workflow, safety, and verification rules.
+5. Repo `LEARNINGS.md` for durable corrections.
+6. Existing implemented components and tokens once the site is scaffolded.
+7. Temporary design exploration notes, screenshots, or chat history.
 
 If approved brand material conflicts with this draft guide, follow the approved brand material and update this guide in the same change.
 
@@ -44,15 +45,21 @@ Use these principles to judge whether a page or component belongs in TEN Habitat
 - **Content truth:** Let confirmed content drive structure. Do not invent proof, services, metrics, locations, people, or promises to make a layout look complete.
 - **Accessibility:** Treat readable contrast, keyboard access, semantic markup, labels, focus states, and responsive behavior as design requirements.
 
-## Site Direction From Mockups
+## Site Direction From Figma
 
-The reviewed transition-site mockups establish the current design and content direction:
+The live Figma file establishes the current design and content direction:
 
 - TEN Habitat is transitioning into **Venture Habitat**.
 - The central proposition is a conversion layer for Caribbean entrepreneurial activity.
 - The site should emphasize ordinary businesses becoming extraordinary through structure, capital access, community, and momentum.
 - The main action is joining the founding community.
 - The experience should split clearly into builder, backer, and investor paths.
+
+Current Figma source:
+
+- File: https://www.figma.com/design/w3otvdvP7LwujMS0DkUHIW/TENHabitat
+- File key: `w3otvdvP7LwujMS0DkUHIW`
+- Handoff details: [`docs/design-handoff.md`](./docs/design-handoff.md)
 
 Initial route intent:
 
@@ -86,9 +93,10 @@ These patterns are banned from final TEN Habitat website work unless Chris expli
 ## Brand And Content Rules
 
 - Use `TEN Habitat` consistently unless approved brand material specifies another form.
-- Use `Venture Habitat` for the emerging offer/platform described by the transition-site mockups.
+- Use `Venture Habitat` for the emerging offer/platform described by the current Figma designs.
 - Treat Selwyn Cambridge as the client stakeholder. Do not invent biography, credentials, quotes, services, or claims.
-- Claims shown in the provided mockups may be treated as source material, but keep them traceable and avoid expanding them without approval.
+- Claims and statistics shown in the current Figma pages are approved source content unless Chris or Selwyn Cambridge later revises them.
+- Keep claims traceable to approved source material and avoid expanding them without approval.
 - Do not imply regulatory, legal, environmental, financial, construction, real estate, or professional guarantees without approved source text.
 - Draft copy must be visibly provisional in docs or kept out of production surfaces.
 - If the design needs content that does not exist yet, create a content gap instead of inventing filler.
