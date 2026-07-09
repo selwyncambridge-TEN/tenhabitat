@@ -59,6 +59,8 @@ Each rule should be:
 
 ## Git & Releases
 
+- (2026-07-08) Rule: Netlify production builds should run only for website/runtime/deployment inputs; docs-only, test-only, and agent-instruction-only changes must be ignored by the Netlify build-ignore gate.
+  Why: Chris approved the website preview but explicitly asked that `/docs/` and other files unnecessary for building or deployment must not trigger GitHub-to-Netlify deploys.
 - (2026-07-08) Rule: Keep TEN Habitat deployment, database, analytics, domain, and environment configuration isolated for Selwyn Cambridge handover; never reuse unrelated Netlify resources or deployment pipelines.
   Why: The project is intended to be handed over fully to Selwyn, so cross-project contamination would make ownership, billing, secrets, and operations harder to transfer cleanly.
 - (2026-07-08) Rule: Use TEN Habitat-specific Netlify authentication for this repo; do not rely on the global Netlify CLI login, ambient Netlify token, or MCP server if it is authenticated against another project.

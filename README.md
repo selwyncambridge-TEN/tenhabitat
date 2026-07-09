@@ -162,6 +162,12 @@ scripts/netlify-tenhabitat.sh link-tenhabitat
 
 If `netlify status` without the wrapper shows a non-TEN Habitat account or site, ignore that result for this repo and use the wrapper instead.
 
+## Netlify Build Filtering
+
+Netlify uses `scripts/netlify-ignore-build.sh` from `netlify.toml` to avoid deployments for repo-only changes.
+
+Builds run for website/runtime/deployment inputs such as `app/`, `components/`, `lib/`, `public/`, `netlify/`, package files, and build configuration. Builds are skipped when the push only changes docs, tests, agent instructions, Git hooks, Playwright config, or other files that are not required to build or deploy the website.
+
 ## Netlify MCP Access
 
 Use the TEN Habitat MCP wrapper, not the global Netlify MCP server:

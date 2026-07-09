@@ -1,5 +1,6 @@
 [build]
   command = "pnpm build"
+  ignore = "scripts/netlify-ignore-build.sh"
   publish = ".next"
 
 [dev]
