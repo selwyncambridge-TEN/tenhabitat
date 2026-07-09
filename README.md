@@ -1,6 +1,6 @@
 # TEN Habitat
 
-Website repository for TEN Habitat, developed for Selwyn Cambridge.
+Website repository for TEN Habitat, owned by Selwyn Cambridge.
 
 This site is the public transition into **Venture Habitat**: a founding-community and venture-building platform for converting Caribbean entrepreneurial activity into investable businesses.
 
@@ -68,6 +68,30 @@ The live Figma file is the current visual/design source for the TEN Habitat webs
 
 The Figma links in this repo document the source of truth but do not grant access. Claude Design or any other design agent must have Figma access through its connected integration, Figma account/team permissions, or a suitable shared file permission.
 
+## Getting Started From GitHub
+
+Prerequisites:
+
+- Node.js 22 or newer
+- pnpm 10.26.1 or newer
+- Git
+
+Clone the repository from the GitHub URL owned by Selwyn Cambridge:
+
+```bash
+git clone <tenhabitat-github-url>
+cd tenhabitat
+corepack enable
+pnpm install
+pnpm dev
+```
+
+Open the local URL printed by Next.js. For a production build check, run:
+
+```bash
+pnpm check
+```
+
 Common commands:
 
 ```bash
@@ -97,15 +121,23 @@ Likely v1 record fields:
 - source page or campaign metadata
 - follow-up status
 
-## Project Isolation
+## Project Ownership And Isolation
 
-TEN Habitat is a client project for Selwyn Cambridge and should be cleanly handover-ready.
+TEN Habitat should remain cleanly owned and operated by Selwyn Cambridge.
 
 - Use a dedicated Netlify site/project for TEN Habitat.
 - Use a dedicated Netlify Database for TEN Habitat.
 - Use dedicated environment variables, deploy hooks, analytics, forms, and domain/DNS settings.
 - Do not link this repo to unrelated Netlify sites, databases, teams, deploy pipelines, or analytics resources.
-- Keep setup documented so Selwyn can take full control of the repo, deployment, database, and domain when the project is handed over.
+- Keep setup documented so Selwyn can control the repo, deployment, database, and domain from his own GitHub, Netlify, and local development environment.
+
+Ownership-transfer checklist:
+
+- Transfer the GitHub repository to Selwyn Cambridge or the correct TEN Habitat GitHub owner.
+- Confirm the Netlify site is connected to the transferred GitHub repository and the `main` production branch.
+- Confirm Selwyn has access to the TEN Habitat Netlify team, site, database, domain/DNS settings, and environment variables.
+- Create new local credentials on Selwyn's machine using `.env.example`; do not reuse another person's local `.secrets/` directory.
+- Update local Git remotes on existing checkouts after the GitHub transfer if the repository URL changes.
 
 ## Netlify Access
 
@@ -180,13 +212,15 @@ For MCP, prefer `TENHABITAT_NETLIFY_AUTH_TOKEN` because Netlify documents MCP cl
 
 For MCP clients that support repo-local JSON config, copy `.mcp.example.json` to `.mcp.json`. `.mcp.json` is ignored by git.
 
-For Codex on this machine, the MCP server should be registered in `~/.codex/config.toml` as `netlify_tenhabitat` with this command:
+For Codex, register the MCP server in your local `~/.codex/config.toml` as `netlify_tenhabitat`. Use the absolute path to this repository on your own machine:
 
 ```toml
 [mcp_servers.netlify_tenhabitat]
-command = "/home/chris/projects/tenhabitat/scripts/netlify-mcp-tenhabitat.sh"
+command = "/absolute/path/to/tenhabitat/scripts/netlify-mcp-tenhabitat.sh"
 startup_timeout_sec = 60.0
 ```
+
+If your MCP client supports relative commands in a repo-local config, `.mcp.example.json` provides a portable example. Copy it to `.mcp.json` and adjust the command only if your client requires an absolute path.
 
 Restart the MCP client after changing MCP configuration. In active sessions, newly added MCP servers may not appear until the next session starts.
 

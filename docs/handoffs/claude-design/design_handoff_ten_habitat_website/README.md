@@ -19,7 +19,7 @@ The files in this bundle are **design references created in HTML** — a working
 ## Fidelity
 **High-fidelity.** Colors, typography, spacing, copy, and interactions are final. Recreate pixel-perfectly. All copy in the prototype is approved — do not rewrite it.
 
-**Content note:** the statistics (500+ founders, US$6M+ raised, 1,000+ jobs, US$350M invested, 70% undercapitalised, <3% export) are approved source content. Build the real site so these figures are centralized and easy to update if Chris or Selwyn Cambridge later revises them.
+**Content note:** the statistics (500+ founders, US$6M+ raised, 1,000+ jobs, US$350M invested, 70% undercapitalised, <3% export) are approved source content. Build the real site so these figures are centralized and easy to update if Selwyn Cambridge later revises them.
 
 ## Design Tokens
 

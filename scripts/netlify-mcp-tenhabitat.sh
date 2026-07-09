@@ -49,4 +49,21 @@ if [[ -n "${TENHABITAT_NETLIFY_TEAM_ID:-}" ]]; then
   export TENHABITAT_EXPECTED_NETLIFY_TEAM_ID="$TENHABITAT_NETLIFY_TEAM_ID"
 fi
 
-exec /home/chris/.local/bin/netlify-mcp-server
+if [[ -n "${TENHABITAT_NETLIFY_MCP_COMMAND:-}" ]]; then
+  exec bash -lc "$TENHABITAT_NETLIFY_MCP_COMMAND"
+fi
+
+if command -v netlify-mcp-server >/dev/null 2>&1; then
+  exec netlify-mcp-server
+fi
+
+if command -v npx >/dev/null 2>&1; then
+  exec npx -y @netlify/mcp
+fi
+
+cat >&2 <<ERROR
+Unable to find a Netlify MCP server command.
+
+Install the Netlify MCP server so "netlify-mcp-server" is on PATH, install Node.js/npm so this wrapper can run "npx -y @netlify/mcp", or set TENHABITAT_NETLIFY_MCP_COMMAND in $ENV_FILE.
+ERROR
+exit 1

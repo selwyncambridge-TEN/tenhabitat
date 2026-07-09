@@ -6,7 +6,7 @@
 
 This repository is the website codebase for TEN Habitat, developed for Selwyn Cambridge. It owns the public web experience, project documentation, brand/design implementation, and deployment configuration for this site.
 
-This repo is independent. Reuse general engineering discipline from other work, but do not import unrelated project names, issue workflows, architecture, product claims, design language, hosting assumptions, or business rules unless Chris explicitly asks for a specific reusable mechanic.
+This repo is independent. Reuse general engineering discipline from other work, but do not import unrelated project names, issue workflows, architecture, product claims, design language, hosting assumptions, or business rules unless Selwyn Cambridge explicitly asks for a specific reusable mechanic.
 
 ### Authority And Conflict Resolution
 
@@ -27,7 +27,7 @@ Tiebreakers:
 1. Higher authority wins.
 2. If authority is equal, narrower scope wins.
 3. If still tied, newer instruction wins.
-4. If safety, credentials, destructive action, publishing, production, or client-facing claims are involved, do not resolve by guesswork. Ask Chris or choose the conservative path.
+4. If safety, credentials, destructive action, publishing, production, or client-facing claims are involved, do not resolve by guesswork. Ask Selwyn Cambridge or choose the conservative path.
 
 ### First Reach
 
@@ -44,16 +44,16 @@ Tiebreakers:
 
 ### Current State
 
-This repo now has the approved technical scaffold and the first production website pass from the Claude Design handoff. Product positioning, implemented routes, stack, hosting, forms, and database direction are captured below and in `README.md`. Treat production domain, analytics, and any future content revisions as undecided until confirmed by Chris or Selwyn Cambridge.
+This repo now has the approved technical scaffold and the first production website pass from the Claude Design handoff. Product positioning, implemented routes, stack, hosting, forms, and database direction are captured below and in `README.md`. Treat custom domain, analytics, and any future content revisions as undecided until confirmed by Selwyn Cambridge.
 
 ### Do Not
 
 - Do not hand-edit `AGENTS.md`; edit `CLAUDE.md` and regenerate the mirror.
-- Do not invent TEN Habitat services, pricing, team details, locations, guarantees, certifications, statistics, launch dates, or client biography.
-- Do not commit real credentials, API keys, service tokens, private client documents, unpublished assets, private media, contracts, invoices, or environment-specific secrets.
+- Do not invent TEN Habitat services, pricing, team details, locations, guarantees, certifications, statistics, launch dates, or owner biography.
+- Do not commit real credentials, API keys, service tokens, private project documents, unpublished assets, private media, contracts, invoices, or environment-specific secrets.
 - Do not add unrelated project names, workflows, links, architecture, or business assumptions to this repository.
 - Do not link this repo to any unrelated Netlify site, team resource, database, deploy hook, analytics account, environment variable set, or deployment pipeline.
-- Do not publish, deploy, push, open pull requests, create issues, send messages, or make client-visible changes unless Chris explicitly asks.
+- Do not publish, deploy, push, open pull requests, create issues, send messages, or make public-facing changes unless Selwyn Cambridge explicitly asks.
 - Do not run destructive commands or shared-state-changing operations without explicit permission.
 
 ## Quick Reference
@@ -61,7 +61,7 @@ This repo now has the approved technical scaffold and the first production websi
 - **Project**: TEN Habitat website
 - **Client**: Selwyn Cambridge
 - **Purpose**: Public-facing Venture Habitat transition and founding-community website
-- **Status**: Technical scaffold installed; public website not yet built
+- **Status**: Public website implemented and deployed on Netlify
 - **Primary docs**: `CLAUDE.md`, `AGENTS.md`, `LEARNINGS.md`, `DESIGN.md`, `README.md`
 
 ## Approved Product Direction
@@ -90,7 +90,7 @@ Approved initial routes:
 
 ## Approved Technical Scaffold
 
-Use this stack unless Chris changes it:
+Use this stack unless Selwyn Cambridge changes it:
 
 - Next.js 16
 - React 19
@@ -104,7 +104,7 @@ Use this stack unless Chris changes it:
 - Netlify Database for simple relational data
 - Zod for validation
 
-Do not use TypeScript release candidates for this client site unless Chris explicitly approves. Verify current package versions before scaffolding because JavaScript tooling changes quickly.
+Do not use TypeScript release candidates for this production site unless Selwyn Cambridge explicitly approves. Verify current package versions before scaffolding because JavaScript tooling changes quickly.
 
 Installed scaffold commands:
 
@@ -151,7 +151,7 @@ Likely v1 data records:
 
 ## Project Isolation And Handover
 
-TEN Habitat is a client project for Selwyn Cambridge and must be operationally isolated from unrelated work.
+TEN Habitat is owned by Selwyn Cambridge and must be operationally isolated from unrelated work.
 
 Rules:
 
@@ -160,7 +160,7 @@ Rules:
 - Use dedicated environment variables, deploy hooks, analytics, forms, and domain/DNS settings.
 - Do not reuse unrelated Netlify sites, databases, teams, tokens, environment variables, analytics properties, deploy pipelines, or project-board workflows.
 - Prefer handover-friendly configuration: document setup, keep secrets out of git, and avoid machine-local assumptions.
-- Before linking or deploying through Netlify, verify the selected Netlify team/site belongs to the TEN Habitat project or is intended for Selwyn handover.
+- Before linking or deploying through Netlify, verify the selected Netlify team/site belongs to the TEN Habitat project and is intended for Selwyn Cambridge's ownership.
 
 ### Netlify CLI And MCP Isolation
 
@@ -217,13 +217,13 @@ Never put real credentials in tracked templates, docs, source files, commits, is
 
 ## 1. Ask Before Destructive Or Shared-State Commands
 
-Never run irreversible or shared-state-changing commands without explicit permission. State the exact command, why it is needed, and wait for Chris to approve.
+Never run irreversible or shared-state-changing commands without explicit permission. State the exact command, why it is needed, and wait for Selwyn Cambridge to approve.
 
 Always require confirmation for:
 
 - `git push --force` or `git push --force-with-lease`
 - `git reset --hard`, `git clean -fd`, `git checkout -- .`
-- `git merge`, `git rebase`, or `git cherry-pick` onto `main` or onto any branch Chris is reviewing
+- `git merge`, `git rebase`, or `git cherry-pick` onto `main` or onto any branch Selwyn Cambridge is reviewing
 - deleting local or remote branches
 - amending commits that have already been pushed
 - tag deletion or force-pushed tags
@@ -246,7 +246,7 @@ Before saying a task is complete, verify it directly:
 - For JavaScript or TypeScript work, inspect `package.json` and run the repo's relevant scripts. Do not guess command names.
 - For UI work, load the page in a browser and check the changed behavior and layout on desktop and mobile.
 - For forms, check success, validation, loading, and error states.
-- For deployment work, verify the deployed or preview URL before telling Chris to use it.
+- For deployment work, verify the deployed or preview URL before telling Selwyn Cambridge to use it.
 
 Report outcomes honestly:
 
@@ -261,13 +261,13 @@ Do not assume silently. Before implementing:
 
 - Inspect relevant files, conventions, and existing helpers.
 - State important assumptions.
-- If multiple interpretations exist and the difference affects client-facing behavior, ask Chris.
+- If multiple interpretations exist and the difference affects public-facing behavior, ask Selwyn Cambridge.
 - Prefer extending existing patterns over duplicating them.
 - If a simpler approach solves the actual request, use it.
 
 ## 4. Preserve TEN Habitat Truth
 
-Client-facing content must be grounded in approved sources. Do not invent facts to fill a page. When copy, imagery, brand rules, services, proof points, or calls to action are missing, use neutral placeholders only when clearly marked as temporary, or ask Chris for the source material.
+Client-facing content must be grounded in approved sources. Do not invent facts to fill a page. When copy, imagery, brand rules, services, proof points, or calls to action are missing, use neutral placeholders only when clearly marked as temporary, or ask Selwyn Cambridge for the source material.
 
 ---
 
@@ -333,13 +333,13 @@ A narrow suppression is allowed only for broken third-party types, generated/ven
 
 Validate external, user-controlled, network, file, database, form, CMS, and environment inputs at boundaries. Guard against null or undefined values, empty strings, invalid IDs, invalid enum values, missing permissions, network failures, timeouts, unexpected response shapes, and missing environment variables.
 
-Handle errors deliberately. Error messages should be useful, specific, and safe. Do not leak secrets, stack traces, private client data, or sensitive internals.
+Handle errors deliberately. Error messages should be useful, specific, and safe. Do not leak secrets, stack traces, private project data, or sensitive internals.
 
 ### 8. Security Standard
 
 Do not introduce security regressions. Protect against injection, cross-site scripting, unsafe deserialization, broken authorization, secret leakage, unsafe redirects, CSRF where relevant, sensitive logging, and trust in client-only validation.
 
-Use framework security defaults, safe escaping, server-side validation where applicable, least-privilege access, and parameterized queries if data storage is later added. Never expose secrets, private keys, `.env` values, or sensitive client material.
+Use framework security defaults, safe escaping, server-side validation where applicable, least-privilege access, and parameterized queries if data storage is later added. Never expose secrets, private keys, `.env` values, or sensitive project material.
 
 ### 9. Testing Standard
 
@@ -357,7 +357,7 @@ Update documentation when the task changes setup, usage, public behavior, deploy
 
 Do not add a dependency unless it is clearly justified by the task. Prefer existing project utilities, standard library features, framework-native APIs, or a small local implementation.
 
-If a dependency is necessary, choose a mature, maintained, minimal package. Do not change package managers or lockfile formats unless Chris asks or the scaffold requires it.
+If a dependency is necessary, choose a mature, maintained, minimal package. Do not change package managers or lockfile formats unless Selwyn Cambridge asks or the scaffold requires it.
 
 ### 12. Performance
 
@@ -455,13 +455,13 @@ For UI changes, run the site locally and inspect the changed pages in a browser.
 
 # Content And Client Truth
 
-TEN Habitat content must stay grounded in approved inputs from Chris, Selwyn Cambridge, or repo-tracked source material.
+TEN Habitat content must stay grounded in approved inputs from Selwyn Cambridge or repo-tracked source material.
 
 Rules:
 
 - Do not invent services, neighborhoods, projects, testimonials, metrics, awards, credentials, press, pricing, team members, or company history.
 - Do not imply regulatory, legal, environmental, financial, or construction claims without approved source text.
-- Do not publish private client material unless Chris explicitly marks it as public and repo-safe.
+- Do not publish private project material unless Selwyn Cambridge explicitly marks it as public and repo-safe.
 - Mark provisional copy as draft in docs or keep it out of production surfaces.
 - If content is missing, ask for it or create a clearly labeled content gap.
 
@@ -469,11 +469,11 @@ Rules:
 
 # Git Workflow
 
-- Work on a branch for reviewable changes. Do not commit directly on `main` unless Chris explicitly asks.
-- Commit only when Chris asks for a commit or the active task clearly includes committing.
-- Do not push unless Chris explicitly asks.
+- Work on a branch for reviewable changes. Do not commit directly on `main` unless Selwyn Cambridge explicitly asks.
+- Commit only when Selwyn Cambridge asks for a commit or the active task clearly includes committing.
+- Do not push unless Selwyn Cambridge explicitly asks.
 - Before committing, run relevant checks, inspect `git status`, inspect the staged diff, and ensure no unrelated files are included.
-- Do not use `--no-verify` unless Chris explicitly approves.
+- Do not use `--no-verify` unless Selwyn Cambridge explicitly approves.
 - Keep commits coherent: one purpose, clear message, no unrelated cleanup.
 
 ---
@@ -482,11 +482,11 @@ Rules:
 
 Read `LEARNINGS.md` at the start of each task.
 
-When Chris corrects a mistake:
+When Selwyn Cambridge or the current repository owner corrects a mistake:
 
 1. Apply the correction.
 2. Update or append one concise rule in `LEARNINGS.md`.
-3. Show Chris the new rule before continuing.
+3. Show the new rule before continuing.
 
 Rules in `LEARNINGS.md` should be concrete, dated, and scoped to this repo.
 
@@ -498,7 +498,7 @@ Rules in `LEARNINGS.md` should be concrete, dated, and scoped to this repo.
 - Prefer `fd` over `find` when available.
 - Use `jq` for JSON processing.
 - Discover commands from project files before running them.
-- For Node projects, prefer the package manager indicated by the lockfile. If scaffolding from scratch and Chris has not chosen otherwise, prefer `pnpm`.
+- For Node projects, prefer the package manager indicated by the lockfile. If scaffolding from scratch and Selwyn Cambridge has not chosen otherwise, prefer `pnpm`.
 - For browser/UI testing, use the available browser automation or Playwright and report what was actually checked.
 
 ---
