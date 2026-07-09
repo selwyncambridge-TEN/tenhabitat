@@ -33,7 +33,7 @@ Repo links document the source of truth, but they do not grant access. Claude De
 ## Current Design Notes
 
 - Treat the Figma file as the active visual/design source.
-- Treat visible claims and statistics in the current Figma pages as approved source content unless Chris or Selwyn Cambridge later revises them.
+- Treat visible claims and statistics in the current Figma pages as approved source content unless Selwyn Cambridge later revises them.
 - Jost is the approved production font for the current website direction.
 - The current designs need refinement into a coherent website system before implementation.
 - Do not use exported SVG pages as production pages. Rebuild the site as semantic, responsive HTML/CSS with accessible text, optimized images, and real forms.
@@ -74,4 +74,4 @@ Before handing work to Claude Design:
 - Confirm Claude Design can open the Figma file URL.
 - Confirm it can inspect the five page nodes listed above.
 - Confirm whether it has edit permission or only view permission.
-- Confirm it should refine the live file, not create a separate duplicate, unless Chris requests a duplicate design branch.
+- Confirm it should refine the live file, not create a separate duplicate, unless Selwyn Cambridge requests a duplicate design branch.

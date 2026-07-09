@@ -16,7 +16,7 @@ canonicalSources:
 
 This root `DESIGN.md` is the agent-facing design contract for the TEN Habitat website. It defines the design standards agents must preserve when creating pages, components, visual systems, content layouts, and interaction states for this repo.
 
-This file does not invent the final brand. It sets the quality bar and the decision rules from the live Figma designs until Chris or Selwyn Cambridge provides final approved brand assets, photography, copy, typography, colors, and positioning. Once approved assets exist, update this file to make them canonical.
+This file does not invent the final brand. It sets the quality bar and the decision rules from the live Figma designs until Selwyn Cambridge provides final approved brand assets, photography, copy, typography, colors, and positioning. Once approved assets exist, update this file to make them canonical.
 
 The TEN Habitat website should feel like a Caribbean venture-building community in transition: established, optimistic, founder-centered, and serious about converting entrepreneurial activity into investable businesses. It should not feel like a generic template, a copied SaaS landing page, a placeholder brochure, or a decorative page with unverified claims.
 
@@ -24,7 +24,7 @@ The TEN Habitat website should feel like a Caribbean venture-building community 
 
 Use this order for design decisions:
 
-1. Approved brand assets, client-provided copy, client-approved imagery, and the live Figma designs reviewed on 2026-07-08.
+1. Approved brand assets, owner-provided copy, owner-approved imagery, and the live Figma designs reviewed on 2026-07-08.
 2. Live Figma source and handoff notes in [`docs/design-handoff.md`](./docs/design-handoff.md).
 3. Repo `DESIGN.md`.
 4. Repo `CLAUDE.md` for workflow, safety, and verification rules.
@@ -74,10 +74,10 @@ Do not embed the exported SVG mockups as production pages. Rebuild the experienc
 
 ## Anti-Patterns
 
-These patterns are banned from final TEN Habitat website work unless Chris explicitly approves a different direction:
+These patterns are banned from final TEN Habitat website work unless Selwyn Cambridge explicitly approves a different direction:
 
 - Generic centered hero with vague headline, two CTAs, and a decorative gradient.
-- Stock-like hero imagery that does not reveal the actual subject, place, product, service, or client-approved atmosphere.
+- Stock-like hero imagery that does not reveal the actual subject, place, product, service, or owner-approved atmosphere.
 - "Trusted by" logo strips, testimonials, awards, certifications, or metrics without approved source material.
 - Bento grids made from icon, heading, and paragraph rows when there is no real content structure behind them.
 - Placeholder sections that read as final production copy.
@@ -95,8 +95,8 @@ These patterns are banned from final TEN Habitat website work unless Chris expli
 
 - Use `TEN Habitat` consistently unless approved brand material specifies another form.
 - Use `Venture Habitat` for the emerging offer/platform described by the current Figma designs.
-- Treat Selwyn Cambridge as the client stakeholder. Do not invent biography, credentials, quotes, services, or claims.
-- Claims and statistics shown in the current Figma pages are approved source content unless Chris or Selwyn Cambridge later revises them.
+- Treat Selwyn Cambridge as the project owner. Do not invent biography, credentials, quotes, services, or claims.
+- Claims and statistics shown in the current Figma pages are approved source content unless Selwyn Cambridge later revises them.
 - Keep claims traceable to approved source material and avoid expanding them without approval.
 - Do not imply regulatory, legal, environmental, financial, construction, real estate, or professional guarantees without approved source text.
 - Draft copy must be visibly provisional in docs or kept out of production surfaces.
@@ -160,7 +160,7 @@ Rules:
 - Use whitespace before dividers. Add dividers only when spacing cannot clarify grouping.
 - Keep section rhythm consistent across pages.
 - Ensure the first viewport signals TEN Habitat clearly and leaves a hint of the next section visible on common mobile and desktop viewports.
-- Do not make a landing page if Chris asks for a usable site page or tool; build the requested experience.
+- Do not make a landing page if Selwyn Cambridge asks for a usable site page or tool; build the requested experience.
 
 ### Elevation And Depth
 
@@ -217,12 +217,12 @@ Forms must be explicit and trustworthy:
 
 ### Media And Imagery
 
-- Prefer real approved photography, client-supplied images, site/project imagery, or custom-generated assets that match the brief.
+- Prefer real approved photography, owner-supplied images, site/project imagery, or custom-generated assets that match the brief.
 - Preserve the mockups' emphasis on Caribbean founders, business owners, community gatherings, and institutional/diaspora participation.
 - Do not use dark, blurred, cropped, stock-like, or purely atmospheric media when the user needs to inspect the real subject.
 - Keep image crops intentional across breakpoints.
 - Provide useful alt text for informative images and empty alt text for decorative images.
-- Do not create fake project images, fake team photos, fake client logos, or fake testimonials.
+- Do not create fake project images, fake team photos, fake partner logos, or fake testimonials.
 
 ### Icons
 
