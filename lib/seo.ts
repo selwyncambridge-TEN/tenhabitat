@@ -55,6 +55,13 @@ export const seoRoutes = {
     priority: 0.7,
     title: "Join the Venture Habitat Founding Community | TEN Habitat",
   },
+  "/founder-pricing": {
+    changeFrequency: "monthly",
+    description:
+      "Free 2-minute check: see the gap between what you charge and what you'd need to charge to pay yourself properly. A Venture Habitat tool from TEN Habitat.",
+    priority: 0.8,
+    title: "Founder Pay Gap Check | TEN Habitat",
+  },
 } as const;
 
 export type SeoPath = keyof typeof seoRoutes;
