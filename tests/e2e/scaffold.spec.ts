@@ -77,7 +77,18 @@ test.describe("TEN Habitat website", () => {
       "href",
       "https://venturehabitat.org",
     );
-    await expect(page.getByRole("link", { name: "Skip intro →" })).toHaveAttribute("href", "/home");
+    await expect(page.getByRole("link", { name: "Skip intro →" })).toHaveCount(0);
+    await expect(page.getByRole("link", { name: "TEN Habitat home" })).toHaveAttribute("href", "/");
+  });
+
+  test("splash shows the evolved headline and the TEN Habitat banners", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      "After nearly two decades of helping Caribbean businesses start and grow… we have evolved.",
+    );
+    await expect(page.getByRole("heading", { name: /For nearly two decades, TEN Habitat/ })).toBeVisible();
+    await expect(page.getByText("Now comes the layer we were always missing.")).toBeVisible();
   });
 });
 
