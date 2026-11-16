@@ -69,6 +69,16 @@ test.describe("TEN Habitat website", () => {
     await expect(page).toHaveURL(/\/$/);
     await expect(page.getByText("After nearly two decades")).toBeVisible();
   });
+
+  test("splash primary action links to the Venture Habitat website", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(page.getByRole("link", { name: "Explore Venture Habitat →" })).toHaveAttribute(
+      "href",
+      "https://venturehabitat.org",
+    );
+    await expect(page.getByRole("link", { name: "Skip intro →" })).toHaveAttribute("href", "/home");
+  });
 });
 
 test.describe("TEN Habitat SEO", () => {

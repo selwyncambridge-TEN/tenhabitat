@@ -46,12 +46,12 @@ export default function SplashPage() {
               After nearly two decades of helping Caribbean businesses start and grow…{" "}
               <span className="text-gold">we are nurturing something new.</span>
             </h1>
-            <Link
+            <a
               className="inline-flex min-h-11 items-center justify-center rounded-lg bg-gold px-[30px] py-4 text-lg font-semibold tracking-[0.2px] text-ink shadow-[0_8px_24px_rgba(0,0,0,0.3)] transition hover:bg-amber focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cocoa"
-              href="/home"
+              href="https://venturehabitat.org"
             >
               Explore Venture Habitat →
-            </Link>
+            </a>
           </div>
         </div>
       </section>
